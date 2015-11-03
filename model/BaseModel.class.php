@@ -9,7 +9,7 @@
 
 namespace model;
 
-defined('ACCESS_GRANT') or exit('没有访问权限!');
+defined('ACCESS_GRANT') or exit('Forbidden!');
 
 class BaseModel extends \common\libs\classes\Base{
 
