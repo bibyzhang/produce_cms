@@ -1,0 +1,9 @@
+<div class="unit">
+    <label>平台:</label>
+    <select class="sfilter" name="pid">
+        <option label="--请选择所属平台--" value="0">--请选择所属平台--</option>
+        <{foreach from=$Platform item=v key=key}>
+        <option label="<{$v}>" value="<{$key}>" <{if !empty($gbdata.pid) && $gbdata.pid==$key}>selected="selected"<{/if}>><{$v}></option>
+        <{/foreach}>
+    </select><span style="color: #ff0000;">*</span>
+</div>

@@ -1,0 +1,32 @@
+.fl{float:left;}
+.fr{float:right;}
+.cl{clear:both;}
+
+#header .nav li{line-height:normal;}
+
+.searchBar .searchContent td {padding-right:8px;}
+
+.grid table th div{text-align:center;}
+
+.grid .gridTbody td.multi_line div{white-space:normal;height:auto;}
+
+.grid .gridThead tr.hidden div{height:0;overflow:hidden;}
+.grid .gridThead tr.hidden th{height:0;border-color:#FBFBFB;border-top:none;border-bottom:none;overflow:hidden;}
+
+input.editnow{margin:0;font-size:12px;}
+
+.myform{width:98%;margin:0 auto 10px auto;border-spacing:1px;_border-collapse:collapse;background:#CDCDCD;}
+.myform tr{background:#FFF;}
+.myform th{border:1px solid #FFF;height:32px;text-align:center;background:#DDD;}
+.myform td{border:1px solid #FFF;padding:2px 10px;height:28px;line-height:28px;background:#FFF;}
+.myform td span.error{position:static;float:left;margin:0 0 0 10px;}
+.myform textarea{width:400px;height:88px;}
+
+.action a{margin:3px;display:inline-block;}
+
+.ajax_tips{background:url(../images/info.gif) 5px center no-repeat;}
+
+.article{width:98%;margin:12px auto;}
+.article .title h1{line-height:36px;text-align:center;font-size:16px;}
+.article .content{margin:16px auto;}
+.article .content *{line-height:168%;}

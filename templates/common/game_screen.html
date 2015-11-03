@@ -1,0 +1,80 @@
+<!--游戏介绍截图-->
+<div class="unit">
+    <!--单独修改游戏截图-->
+    <div <{if !empty($smarty.get.opt) && $smarty.get.opt=='game_edit'}>class="cur"<{/if}>>
+    <!--单独修改游戏截图-->
+    <label>游戏截图:</label>
+
+    <!--上传图片预览-->
+    <div id="gamepicPreview_<{$smarty.get.a}>_<{$commontmp}>">
+
+        <{foreach from=$gamePicData item=v key=key}>
+        <!--提交文本存储-->
+        <input name="game_pic[]" class="pic_pre_<{$key}>" class="gamepic_url_<{$smarty.get.a}>_<{$commontmp}>" value="<{$v.img_url}>"/>
+        <!--提交文本存储-->
+        <img width="160" class="pic_pre_<{$key}>" height="284" src="<{$v.img_url}>" style="border: #dcdcdc solid 1px; margin-left:10px;"><a class="pic_pre_<{$key}>" href="javascript:void(0)" onclick="pic_pre_delete('pic_pre_<{$key}>')">删除</a>
+        <{/foreach}>
+
+    </div>
+    <!--上传图片预览-->
+
+    <!--上传图片按钮-->
+    <input type="file" name="file_upload" id="game_pic_<{$smarty.get.a}>_<{$commontmp}>"/>
+    <!--上传图片按钮-->
+
+    <!--上传说明-->
+    <span class="img_explain" style="color: #7a3b3f;">图片尺寸:640[长]*1136[宽]</span><br/>
+    <span class="img_explain" style="color: #ff0000;">可以同时上传多张图片{最多添加5张图片}</span>
+    <!--上传说明-->
+</div>
+</div>
+<!--游戏介绍截图-->
+
+<!--单独修改游戏截图-->
+<{if !empty($smarty.get.opt) && $smarty.get.opt=='game_edit'}><div class="unit"><label>游戏截图:</label><a href="index.php?m=game&c=game_pic_admin&a=game_pic_edit&gid=<{$gbdata.id}>" target="dialog" max="true" height="420" rel="page_<{$smarty.get.a}>_<{$commontmp}>"></div>修改游戏截图</a><{/if}>
+<!--单独修改游戏截图-->
+
+<script>
+$(document).ready(function(){
+    var ajaxbg = $("#background,#progressBar");
+
+    $(function() {
+        $('#data_path_<{$smarty.get.a}>_<{$commontmp}>').uploadify({
+            'formData' : {
+                'user_auth' : '<{$user_auth}>'
+            },
+            'swf'      : 'statics/uploadify/scripts/uploadify.swf',
+            'uploader' : '<{$IMAGE_PATH}>index.php?m=common&c=common_action&a=game_package_upload&package_category=game',
+            'method'   : 'post',
+            'height'   : 30,
+            'width'    : 120,
+            'fileObjName' : 'package',
+            'buttonText' : '<{if empty($gbdata.iconurl)}>上传数据包<{else}>修改数据包<{/if}>',
+            'folder': 'uploads',
+            'auto'     : true,
+
+            'onUploadStart' : function(file) {
+                ajaxbg.show();
+            },
+            'onUploadComplete' : function(file) {
+                ajaxbg.hide();
+            },
+            'onUploadSuccess' : function(file, data, response) {
+                var imgpath = JSON.parse(data);
+                if(imgpath.err){
+                    alertMsg.error(imgpath.msg);
+                }else{
+                    $(".game_package_path_<{$smarty.get.a}>").val(imgpath.path);
+                    $(".game_package_size_<{$smarty.get.a}>").val(imgpath.size);
+                }
+            },
+            'onFallback' : function() {
+                alertMsg.warn('您的浏览器版本太低不支持文件上传,请更换浏览器！');
+            },
+            'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+                alertMsg.error(file.name + ' 上传失败,详细信息: ' + errorString);
+            }
+        });
+    });
+});
+</script>

@@ -1,0 +1,591 @@
+.highslide-container DIV {
+	FONT-FAMILY: Verdana, Helvetica; FONT-SIZE: 10pt
+}
+.highslide-container TABLE {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.highslide {
+	OUTLINE-STYLE: none; TEXT-DECORATION: none
+}
+.highslide IMG {
+	BORDER-BOTTOM: silver 2px solid; BORDER-LEFT: silver 2px solid; BORDER-TOP: silver 2px solid; BORDER-RIGHT: silver 2px solid
+}
+.highslide:hover IMG {
+	BORDER-BOTTOM-COLOR: gray; BORDER-TOP-COLOR: gray; BORDER-RIGHT-COLOR: gray; BORDER-LEFT-COLOR: gray
+}
+.highslide-active-anchor IMG {
+	VISIBILITY: hidden
+}
+.highslide-gallery .highslide-active-anchor IMG {
+	BORDER-BOTTOM-COLOR: black; BORDER-TOP-COLOR: black; VISIBILITY: visible; BORDER-RIGHT-COLOR: black; BORDER-LEFT-COLOR: black; CURSOR: default
+}
+.highslide-image {
+	BORDER-BOTTOM: white 2px solid; BORDER-LEFT: white 2px solid; BACKGROUND: gray; BORDER-TOP: white 2px solid; BORDER-RIGHT: white 2px solid
+}
+.highslide-wrapper {
+	BACKGROUND: white
+}
+.highslide-outline {
+	BACKGROUND: white
+}
+.glossy-dark {
+	BACKGROUND: #111
+}
+.highslide-image-blur {
+	
+}
+.highslide-number {
+	COLOR: gray; FONT-SIZE: 0.9em; FONT-WEIGHT: bold
+}
+.highslide-caption {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; DISPLAY: none; FONT-SIZE: 1em; PADDING-TOP: 5px
+}
+.highslide-heading {
+	MARGIN: 0.4em; DISPLAY: none; FONT-WEIGHT: bold
+}
+.highslide-dimming {
+	POSITION: absolute; BACKGROUND: black
+}
+A.highslide-full-expand {
+	MARGIN: 0px 10px 10px 0px; WIDTH: 34px; DISPLAY: block; BACKGROUND: url(../images/graphics/fullexpand.gif) no-repeat; HEIGHT: 34px
+}
+.highslide-loading {
+	BACKGROUND-IMAGE: url(../images/graphics/loader.white.gif); BORDER-BOTTOM: white 1px solid; BORDER-LEFT: white 1px solid; PADDING-BOTTOM: 3px; TEXT-TRANSFORM: uppercase; BACKGROUND-COLOR: white; PADDING-LEFT: 22px; PADDING-RIGHT: 3px; DISPLAY: block; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: 3px 1px; COLOR: black; FONT-SIZE: 9px; BORDER-TOP: white 1px solid; FONT-WEIGHT: bold; BORDER-RIGHT: white 1px solid; TEXT-DECORATION: none; PADDING-TOP: 3px
+}
+A.highslide-credits {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; COLOR: silver; FONT-SIZE: 10px; TEXT-DECORATION: none; PADDING-TOP: 2px
+}
+A.highslide-credits I {
+	PADDING-BOTTOM: 2px; PADDING-LEFT: 2px; PADDING-RIGHT: 2px; COLOR: silver; FONT-SIZE: 10px; TEXT-DECORATION: none; PADDING-TOP: 2px
+}
+A.highslide-credits:hover {
+	BACKGROUND-COLOR: gray; COLOR: white
+}
+A.highslide-credits:hover I {
+	BACKGROUND-COLOR: gray; COLOR: white
+}
+.highslide-move {
+	CURSOR: move
+}
+.highslide-move {
+	CURSOR: move
+}
+.highslide-viewport {
+	Z-INDEX: 1; POSITION: fixed; WIDTH: 100%; DISPLAY: none; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 100%; TOP: 0px; LEFT: 0px
+}
+.highslide-overlay {
+	DISPLAY: none
+}
+.hidden-container {
+	DISPLAY: none
+}
+.closebutton {
+	POSITION: relative; WIDTH: 30px; BACKGROUND: url(../images/graphics/close.png); HEIGHT: 30px; TOP: -15px; CURSOR: pointer; LEFT: 15px
+}
+.highslide-gallery UL {
+	PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.highslide-gallery UL LI {
+	BORDER-BOTTOM: silver 1px solid; POSITION: relative; BORDER-LEFT: silver 1px solid; LINE-HEIGHT: 0; MARGIN: 2px; WIDTH: 106px; DISPLAY: block; BACKGROUND: #ededed; FLOAT: left; HEIGHT: 106px; OVERFLOW: hidden; BORDER-TOP: silver 1px solid; BORDER-RIGHT: silver 1px solid
+}
+.highslide-gallery UL A {
+	POSITION: absolute; TOP: 50%; LEFT: 50%
+}
+.highslide-gallery UL IMG {
+	POSITION: relative; TOP: -50%; LEFT: -50%
+}
+UNKNOWN {
+	TEXT-ALIGN: center
+}
+UNKNOWN {
+	TEXT-ALIGN: center
+}
+UNKNOWN {
+	POSITION: static; VERTICAL-ALIGN: middle
+}
+UNKNOWN {
+	POSITION: static
+}
+.highslide-controls {
+	MARGIN: 20px 15px 10px 0px; WIDTH: 195px; BACKGROUND: url(../images/graphics/controlbar-white.gif) no-repeat 0px -90px; HEIGHT: 40px
+}
+.highslide-controls UL {
+	POSITION: relative; PADDING-BOTTOM: 0px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BACKGROUND: url(../images/graphics/controlbar-white.gif) no-repeat right -90px; HEIGHT: 40px; PADDING-TOP: 0px; LEFT: 15px
+}
+.highslide-controls LI {
+	PADDING-BOTTOM: 5px; LIST-STYLE-TYPE: none; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; FLOAT: left; PADDING-TOP: 5px
+}
+.highslide-controls A {
+	BACKGROUND-IMAGE: url(../images/graphics/controlbar-white.gif); OUTLINE-STYLE: none; WIDTH: 30px; DISPLAY: block; FLOAT: left; HEIGHT: 30px
+}
+.highslide-controls A.disabled {
+	CURSOR: default
+}
+.highslide-controls A.disabled SPAN {
+	CURSOR: default
+}
+.highslide-controls A SPAN {
+	DISPLAY: none; CURSOR: pointer
+}
+.highslide-controls .highslide-previous A {
+	BACKGROUND-POSITION: 0px 0px
+}
+.highslide-controls .highslide-previous A:hover {
+	BACKGROUND-POSITION: 0px -30px
+}
+.highslide-controls .highslide-previous A.disabled {
+	BACKGROUND-POSITION: 0px -60px
+}
+.highslide-controls .highslide-play A {
+	BACKGROUND-POSITION: -30px 0px
+}
+.highslide-controls .highslide-play A:hover {
+	BACKGROUND-POSITION: -30px -30px
+}
+.highslide-controls .highslide-play A.disabled {
+	BACKGROUND-POSITION: -30px -60px
+}
+.highslide-controls .highslide-pause A {
+	BACKGROUND-POSITION: -60px 0px
+}
+.highslide-controls .highslide-pause A:hover {
+	BACKGROUND-POSITION: -60px -30px
+}
+.highslide-controls .highslide-next A {
+	BACKGROUND-POSITION: -90px 0px
+}
+.highslide-controls .highslide-next A:hover {
+	BACKGROUND-POSITION: -90px -30px
+}
+.highslide-controls .highslide-next A.disabled {
+	BACKGROUND-POSITION: -90px -60px
+}
+.highslide-controls .highslide-move A {
+	BACKGROUND-POSITION: -120px 0px
+}
+.highslide-controls .highslide-move A:hover {
+	BACKGROUND-POSITION: -120px -30px
+}
+.highslide-controls .highslide-full-expand A {
+	BACKGROUND-POSITION: -150px 0px
+}
+.highslide-controls .highslide-full-expand A:hover {
+	BACKGROUND-POSITION: -150px -30px
+}
+.highslide-controls .highslide-full-expand A.disabled {
+	BACKGROUND-POSITION: -150px -60px
+}
+.highslide-controls .highslide-close A {
+	BACKGROUND-POSITION: -180px 0px
+}
+.highslide-controls .highslide-close A:hover {
+	BACKGROUND-POSITION: -180px -30px
+}
+.highslide-maincontent {
+	DISPLAY: none
+}
+.highslide-html {
+	BACKGROUND-COLOR: white
+}
+.highslide-html-content {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; WIDTH: 400px; PADDING-RIGHT: 5px; DISPLAY: none; PADDING-TOP: 0px
+}
+.highslide-header {
+	PADDING-BOTTOM: 5px
+}
+.highslide-header UL {
+	TEXT-ALIGN: right; PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.highslide-header UL LI {
+	PADDING-LEFT: 1em; DISPLAY: inline
+}
+.highslide-header UL LI.highslide-previous {
+	DISPLAY: none
+}
+.highslide-header UL LI.highslide-next {
+	DISPLAY: none
+}
+.highslide-header A {
+	TEXT-TRANSFORM: uppercase; COLOR: gray; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.highslide-header A:hover {
+	COLOR: black
+}
+.highslide-header .highslide-move A {
+	CURSOR: move
+}
+.highslide-footer {
+	HEIGHT: 16px
+}
+.highslide-footer .highslide-resize {
+	MARGIN-TOP: 5px; WIDTH: 11px; DISPLAY: block; BACKGROUND: url(../images/graphics/resize.gif) no-repeat; FLOAT: right; HEIGHT: 11px
+}
+.highslide-footer .highslide-resize SPAN {
+	DISPLAY: none
+}
+.highslide-body {
+	
+}
+.highslide-resize {
+	CURSOR: nw-resize
+}
+.draggable-header .highslide-header {
+	BORDER-BOTTOM: #dddddd 1px solid; HEIGHT: 18px
+}
+.draggable-header .highslide-heading {
+	POSITION: absolute; MARGIN: 2px 0.4em
+}
+.draggable-header .highslide-header .highslide-move {
+	Z-INDEX: 1; POSITION: absolute; WIDTH: 100%; DISPLAY: block; HEIGHT: 16px; TOP: 0px; CURSOR: move; RIGHT: 24px
+}
+.draggable-header .highslide-header .highslide-move {
+	DISPLAY: none
+}
+.draggable-header .highslide-header .highslide-close {
+	Z-INDEX: 5; POSITION: absolute; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; TOP: 2px; RIGHT: 2px; PADDING-TOP: 0px
+}
+.draggable-header .highslide-header .highslide-close A {
+	BACKGROUND-IMAGE: url(../images/graphics/closeX.png); WIDTH: 16px; DISPLAY: block; HEIGHT: 16px
+}
+.draggable-header .highslide-header .highslide-close A:hover {
+	BACKGROUND-POSITION: 0px 16px
+}
+.draggable-header .highslide-header .highslide-close SPAN {
+	DISPLAY: none
+}
+.draggable-header .highslide-maincontent {
+	PADDING-TOP: 1em
+}
+.titlebar .highslide-header {
+	BORDER-BOTTOM: #dddddd 1px solid; HEIGHT: 18px
+}
+.titlebar .highslide-heading {
+	POSITION: absolute; MARGIN: 1px 0px 1px 5px; WIDTH: 90%; COLOR: #666666
+}
+.titlebar .highslide-header .highslide-move {
+	Z-INDEX: 1; POSITION: absolute; WIDTH: 100%; DISPLAY: block; HEIGHT: 16px; TOP: 0px; CURSOR: move; RIGHT: 24px
+}
+.titlebar .highslide-header .highslide-move {
+	DISPLAY: none
+}
+.titlebar .highslide-header LI {
+	Z-INDEX: 2; POSITION: relative; PADDING-BOTTOM: 0px; PADDING-LEFT: 1em; PADDING-RIGHT: 0px; TOP: 3px; PADDING-TOP: 0px
+}
+.titlebar .highslide-maincontent {
+	PADDING-TOP: 1em
+}
+.no-footer .highslide-footer {
+	DISPLAY: none
+}
+.wide-border {
+	BACKGROUND: white
+}
+.wide-border .highslide-image {
+	BORDER-RIGHT-WIDTH: 10px; BORDER-TOP-WIDTH: 10px; BORDER-BOTTOM-WIDTH: 10px; BORDER-LEFT-WIDTH: 10px
+}
+.wide-border .highslide-caption {
+	PADDING-BOTTOM: 10px; PADDING-LEFT: 10px; PADDING-RIGHT: 10px; PADDING-TOP: 0px
+}
+.borderless .highslide-image {
+	BORDER-BOTTOM-STYLE: none; BORDER-RIGHT-STYLE: none; BORDER-TOP-STYLE: none; BORDER-LEFT-STYLE: none
+}
+.borderless .highslide-caption {
+	BORDER-BOTTOM: white 1px solid; BACKGROUND: silver; BORDER-TOP: white 1px solid
+}
+.outer-glow {
+	BACKGROUND: #444
+}
+.outer-glow .highslide-image {
+	BORDER-BOTTOM: #444444 5px solid; BORDER-LEFT: #444444 5px solid; BORDER-TOP: #444444 5px solid; BORDER-RIGHT: #444444 5px solid
+}
+.outer-glow .highslide-caption {
+	BORDER-BOTTOM: #444444 5px solid; BORDER-LEFT: #444444 5px solid; PADDING-BOTTOM: 5px; BACKGROUND-COLOR: gray; BORDER-TOP-COLOR: #444444; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; BORDER-TOP-WIDTH: 5px; BORDER-RIGHT: #444444 5px solid; PADDING-TOP: 5px
+}
+.colored-border {
+	BACKGROUND: white
+}
+.colored-border .highslide-image {
+	BORDER-BOTTOM: green 2px solid; BORDER-LEFT: green 2px solid; BORDER-TOP: green 2px solid; BORDER-RIGHT: green 2px solid
+}
+.colored-border .highslide-caption {
+	BORDER-BOTTOM: green 2px solid; BORDER-LEFT: green 2px solid; BORDER-TOP-COLOR: green; BORDER-TOP-WIDTH: 2px; BORDER-RIGHT: green 2px solid
+}
+.dark {
+	BACKGROUND: #111
+}
+.dark .highslide-image {
+	BORDER-BOTTOM-COLOR: #202020; BORDER-TOP-COLOR: black; BACKGROUND: gray; BORDER-RIGHT-COLOR: black; BORDER-LEFT-COLOR: black
+}
+.dark .highslide-caption {
+	BACKGROUND: #111; COLOR: white
+}
+.dark .highslide-controls {
+	BACKGROUND-IMAGE: url(../images/graphics/controlbar-black-border.gif)
+}
+.dark .highslide-controls UL {
+	BACKGROUND-IMAGE: url(../images/graphics/controlbar-black-border.gif)
+}
+.dark .highslide-controls A {
+	BACKGROUND-IMAGE: url(../images/graphics/controlbar-black-border.gif)
+}
+.floating-caption .highslide-caption {
+	POSITION: absolute; BORDER-BOTTOM-STYLE: none; PADDING-BOTTOM: 0px; BORDER-RIGHT-STYLE: none; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-TOP-STYLE: none; BACKGROUND: none transparent scroll repeat 0% 0%; COLOR: white; BORDER-LEFT-STYLE: none; FONT-WEIGHT: bold; PADDING-TOP: 1em
+}
+.controls-in-heading .highslide-heading {
+	PADDING-BOTTOM: 0px; MARGIN: 0px; PADDING-LEFT: 22px; PADDING-RIGHT: 0px; BACKGROUND: url(../images/graphics/icon.gif) no-repeat 0px 1px; HEIGHT: 20px; COLOR: gray; OVERFLOW: hidden; CURSOR: default; FONT-WEIGHT: bold; PADDING-TOP: 0px
+}
+.controls-in-heading .highslide-controls {
+	POSITION: relative; MARGIN: 0px; WIDTH: 105px; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 20px; TOP: -23px; LEFT: 7px
+}
+.controls-in-heading .highslide-controls UL {
+	POSITION: static; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: 20px
+}
+.controls-in-heading .highslide-controls LI {
+	PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.controls-in-heading .highslide-controls A {
+	BACKGROUND-IMAGE: url(../images/graphics/controlbar-white-small.gif); WIDTH: 20px; HEIGHT: 20px
+}
+.controls-in-heading .highslide-controls .highslide-move {
+	DISPLAY: none
+}
+.controls-in-heading .highslide-controls .highslide-previous A {
+	BACKGROUND-POSITION: 0px 0px
+}
+.controls-in-heading .highslide-controls .highslide-previous A:hover {
+	BACKGROUND-POSITION: 0px -20px
+}
+.controls-in-heading .highslide-controls .highslide-previous A.disabled {
+	BACKGROUND-POSITION: 0px -40px
+}
+.controls-in-heading .highslide-controls .highslide-play A {
+	BACKGROUND-POSITION: -20px 0px
+}
+.controls-in-heading .highslide-controls .highslide-play A:hover {
+	BACKGROUND-POSITION: -20px -20px
+}
+.controls-in-heading .highslide-controls .highslide-play A.disabled {
+	BACKGROUND-POSITION: -20px -40px
+}
+.controls-in-heading .highslide-controls .highslide-pause A {
+	BACKGROUND-POSITION: -40px 0px
+}
+.controls-in-heading .highslide-controls .highslide-pause A:hover {
+	BACKGROUND-POSITION: -40px -20px
+}
+.controls-in-heading .highslide-controls .highslide-next A {
+	BACKGROUND-POSITION: -60px 0px
+}
+.controls-in-heading .highslide-controls .highslide-next A:hover {
+	BACKGROUND-POSITION: -60px -20px
+}
+.controls-in-heading .highslide-controls .highslide-next A.disabled {
+	BACKGROUND-POSITION: -60px -40px
+}
+.controls-in-heading .highslide-controls .highslide-full-expand A {
+	BACKGROUND-POSITION: -100px 0px
+}
+.controls-in-heading .highslide-controls .highslide-full-expand A:hover {
+	BACKGROUND-POSITION: -100px -20px
+}
+.controls-in-heading .highslide-controls .highslide-full-expand A.disabled {
+	BACKGROUND-POSITION: -100px -40px
+}
+.controls-in-heading .highslide-controls .highslide-close A {
+	BACKGROUND-POSITION: -120px 0px
+}
+.controls-in-heading .highslide-controls .highslide-close A:hover {
+	BACKGROUND-POSITION: -120px -20px
+}
+.text-controls .highslide-controls {
+	TEXT-ALIGN: center; MARGIN: 0px; WIDTH: auto; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: auto
+}
+.text-controls UL {
+	POSITION: static; BACKGROUND: none transparent scroll repeat 0% 0%; HEIGHT: auto; LEFT: 0px
+}
+.text-controls .highslide-move {
+	DISPLAY: none
+}
+.text-controls LI {
+	BACKGROUND-IMAGE: url(../images/graphics/controlbar-text-buttons.png); PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; WIDTH: auto; PADDING-RIGHT: 0px; DISPLAY: block; BACKGROUND-POSITION: right top; MARGIN-LEFT: 15px; PADDING-TOP: 0px
+}
+.text-controls A {
+	POSITION: relative; WIDTH: auto; DISPLAY: block; BACKGROUND: url(../images/graphics/controlbar-text-buttons.png) no-repeat left top; HEIGHT: auto; TEXT-DECORATION: none !important; LEFT: -10px
+}
+.text-controls A SPAN {
+	MIN-WIDTH: 4em; PADDING-BOTTOM: 1px; LINE-HEIGHT: 18px; MARGIN: 1px 2px 1px 10px; PADDING-LEFT: 18px; PADDING-RIGHT: 0px; DISPLAY: block; FONT-FAMILY: "Trebuchet MS", Arial, sans-serif; WHITE-SPACE: nowrap; BACKGROUND: url(../images/graphics/controlbar-text-buttons.png) no-repeat; HEIGHT: 18px; COLOR: #333; FONT-SIZE: 12px; FONT-WEIGHT: bold; PADDING-TOP: 1px
+}
+.text-controls .highslide-next {
+	MARGIN-RIGHT: 1em
+}
+.text-controls .highslide-full-expand A SPAN {
+	MIN-WIDTH: 0px; PADDING-BOTTOM: 1px; MARGIN: 1px 0px; PADDING-LEFT: 10px; PADDING-RIGHT: 0px; PADDING-TOP: 1px
+}
+.text-controls .highslide-close A SPAN {
+	MIN-WIDTH: 0px
+}
+.text-controls A:hover SPAN {
+	COLOR: black
+}
+.text-controls A.disabled SPAN {
+	COLOR: #999
+}
+.text-controls .highslide-previous SPAN {
+	BACKGROUND-POSITION: 0px -40px
+}
+.text-controls .highslide-previous A.disabled {
+	BACKGROUND-POSITION: left top
+}
+.text-controls .highslide-previous A.disabled SPAN {
+	BACKGROUND-POSITION: 0px -140px
+}
+.text-controls .highslide-play SPAN {
+	BACKGROUND-POSITION: 0px -60px
+}
+.text-controls .highslide-play A.disabled {
+	BACKGROUND-POSITION: left top
+}
+.text-controls .highslide-play A.disabled SPAN {
+	BACKGROUND-POSITION: 0px -160px
+}
+.text-controls .highslide-pause SPAN {
+	BACKGROUND-POSITION: 0px -80px
+}
+.text-controls .highslide-next SPAN {
+	BACKGROUND-POSITION: 0px -100px
+}
+.text-controls .highslide-next A.disabled {
+	BACKGROUND-POSITION: left top
+}
+.text-controls .highslide-next A.disabled SPAN {
+	BACKGROUND-POSITION: 0px -200px
+}
+.text-controls .highslide-full-expand SPAN {
+	BACKGROUND: none transparent scroll repeat 0% 0%
+}
+.text-controls .highslide-full-expand A.disabled {
+	BACKGROUND-POSITION: left top
+}
+.text-controls .highslide-close SPAN {
+	BACKGROUND-POSITION: 0px -120px
+}
+.highslide-thumbstrip {
+	HEIGHT: 100%
+}
+.highslide-thumbstrip DIV {
+	OVERFLOW: hidden
+}
+.highslide-thumbstrip TABLE {
+	POSITION: relative; PADDING-BOTTOM: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; BORDER-COLLAPSE: collapse; PADDING-TOP: 0px
+}
+.highslide-thumbstrip TD {
+	PADDING-BOTTOM: 1px; PADDING-LEFT: 1px; PADDING-RIGHT: 1px; PADDING-TOP: 1px
+}
+.highslide-thumbstrip A {
+	OUTLINE-STYLE: none
+}
+.highslide-thumbstrip IMG {
+	BORDER-BOTTOM: gray 1px solid; BORDER-LEFT: gray 1px solid; MARGIN: 0px auto; DISPLAY: block; BORDER-TOP: gray 1px solid; BORDER-RIGHT: gray 1px solid
+}
+.highslide-thumbstrip .highslide-active-anchor IMG {
+	VISIBILITY: visible
+}
+.highslide-thumbstrip .highslide-marker {
+	BORDER-BOTTOM: transparent 0px solid; POSITION: absolute; BORDER-LEFT: transparent 0px solid; WIDTH: 0px; HEIGHT: 0px; BORDER-TOP: transparent 0px solid; BORDER-RIGHT: transparent 0px solid
+}
+.highslide-thumbstrip-horizontal DIV {
+	WIDTH: auto
+}
+.highslide-thumbstrip-horizontal .highslide-scroll-up {
+	POSITION: absolute; WIDTH: 25px; DISPLAY: none; HEIGHT: 42px; TOP: 3px; LEFT: 3px
+}
+.highslide-thumbstrip-horizontal .highslide-scroll-up DIV {
+	MARGIN-BOTTOM: 10px; BACKGROUND: url(../images/graphics/scrollarrows.png) no-repeat left center; HEIGHT: 42px; CURSOR: pointer
+}
+.highslide-thumbstrip-horizontal .highslide-scroll-down {
+	POSITION: absolute; WIDTH: 25px; DISPLAY: none; HEIGHT: 42px; TOP: 3px; RIGHT: 3px
+}
+.highslide-thumbstrip-horizontal .highslide-scroll-down DIV {
+	MARGIN-BOTTOM: 10px; BACKGROUND: url(../images/graphics/scrollarrows.png) no-repeat right center; HEIGHT: 42px; CURSOR: pointer
+}
+.highslide-thumbstrip-horizontal TABLE {
+	MARGIN: 2px 0px 10px
+}
+.highslide-viewport .highslide-thumbstrip-horizontal TABLE {
+	MARGIN-LEFT: 10px
+}
+.highslide-thumbstrip-horizontal IMG {
+	WIDTH: auto; HEIGHT: 40px
+}
+.highslide-thumbstrip-horizontal .highslide-marker {
+	BORDER-BOTTOM: gray 6px solid; BORDER-RIGHT-WIDTH: 6px; BORDER-LEFT-WIDTH: 6px; TOP: 47px
+}
+.highslide-viewport .highslide-thumbstrip-horizontal .highslide-marker {
+	MARGIN-LEFT: 10px
+}
+.dark .highslide-thumbstrip-horizontal .highslide-marker {
+	BORDER-BOTTOM-COLOR: white !important
+}
+.highslide-viewport .highslide-thumbstrip-horizontal .highslide-marker {
+	BORDER-BOTTOM-COLOR: white !important
+}
+.highslide-thumbstrip-vertical-overlay {
+	OVERFLOW: hidden !important
+}
+.highslide-thumbstrip-vertical DIV {
+	HEIGHT: 100%
+}
+.highslide-thumbstrip-vertical A {
+	DISPLAY: block
+}
+.highslide-thumbstrip-vertical .highslide-scroll-up {
+	POSITION: absolute; WIDTH: 100%; DISPLAY: none; HEIGHT: 25px; TOP: 0px; LEFT: 0px
+}
+.highslide-thumbstrip-vertical .highslide-scroll-up DIV {
+	BACKGROUND: url(../images/graphics/scrollarrows.png) no-repeat center top; HEIGHT: 25px; MARGIN-LEFT: 10px; CURSOR: pointer
+}
+.highslide-thumbstrip-vertical .highslide-scroll-down {
+	POSITION: absolute; WIDTH: 100%; BOTTOM: 0px; DISPLAY: none; HEIGHT: 25px; LEFT: 0px
+}
+.highslide-thumbstrip-vertical .highslide-scroll-down DIV {
+	BACKGROUND: url(../images/graphics/scrollarrows.png) no-repeat center bottom; HEIGHT: 25px; MARGIN-LEFT: 10px; CURSOR: pointer
+}
+.highslide-thumbstrip-vertical TABLE {
+	MARGIN: 10px 0px 0px 10px
+}
+.highslide-thumbstrip-vertical IMG {
+	MAX-WIDTH: 60px
+}
+.highslide-thumbstrip-vertical .highslide-marker {
+	BORDER-LEFT: gray 6px solid; MARGIN-TOP: 8px; BORDER-TOP-WIDTH: 6px; BORDER-BOTTOM-WIDTH: 6px; LEFT: 0px
+}
+.dark .highslide-thumbstrip-vertical .highslide-marker {
+	BORDER-LEFT-COLOR: white
+}
+.highslide-viewport .highslide-thumbstrip-vertical .highslide-marker {
+	BORDER-LEFT-COLOR: white
+}
+.highslide-viewport .highslide-thumbstrip-float {
+	OVERFLOW: auto
+}
+.highslide-thumbstrip-float UL {
+	PADDING-BOTTOM: 0px; MARGIN: 2px 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px; PADDING-TOP: 0px
+}
+.highslide-thumbstrip-float LI {
+	LIST-STYLE-TYPE: none; MARGIN: 0px 2px; DISPLAY: block; FLOAT: left; HEIGHT: 60px
+}
+.highslide-thumbstrip-float IMG {
+	BORDER-BOTTOM-COLOR: silver; BORDER-TOP-COLOR: silver; DISPLAY: inline; MAX-HEIGHT: 56px; BORDER-RIGHT-COLOR: silver; BORDER-LEFT-COLOR: silver
+}
+.highslide-thumbstrip-float .highslide-active-anchor IMG {
+	BORDER-BOTTOM-COLOR: black; BORDER-TOP-COLOR: black; BORDER-RIGHT-COLOR: black; BORDER-LEFT-COLOR: black
+}
+.highslide-thumbstrip-float .highslide-scroll-up DIV {
+	DISPLAY: none
+}
+.highslide-thumbstrip-float .highslide-scroll-down DIV {
+	DISPLAY: none
+}
+.highslide-thumbstrip-float .highslide-marker {
+	DISPLAY: none
+}

@@ -1,0 +1,66 @@
+<div class="pageFormContent" layoutH="98">
+
+    <!--<{include file="common/select_action.html" select_decs='选择所属应用宝游戏' select_name='game_id' select_data=$gameArr val='game_id' desc='game_name_cn' custom=''}>-->
+
+    <div class="unit" id="tencent_run_game">
+        <!--<label><{$select_decs}>:</label>-->
+        <select class="sfilter" name="game_ids">
+            <{foreach from=$gameArr item=v name=foo}>
+            <option label="<{$v['game_name_cn']}>" value="<{$v['game_id']}>" <{if !empty($gbdata['game_id']) && $gbdata['game_id']==$v['game_id']}>selected="selected"<{/if}>"><{$v['game_name_cn']}></option>
+            <{/foreach}>
+        </select>
+    </div>
+    <a href="javascript:void(0);" id="game_ids_add" class="btnAdd">添加游戏:</a>
+    <br />
+
+    <div id="bundle_id_input"></div>
+    <!--<label><input type="checkbox" name="gameId" value="{id:'1', gamename:'xxxxx', gameid:'123'}"/>xxxx</label>-->
+    <!--<label><input type="checkbox" name="gameId" value="{id:'1', gamename:'ssss', gameid:'1234'}"/>xxxx</label>-->
+
+</div>
+<div class="formBar">
+    <!--<label style="float:left"><input type="checkbox" class="checkboxCtrl" group="gameId" />全选</label>-->
+    <ul>
+        <li><div class="button"><div class="buttonContent"><button type="button" class="checkboxCtrl" group="gameId">全选</button></div></div></li>
+        <li><div class="button"><div class="buttonContent"><button type="button" class="checkboxCtrl" group="gameId" selectType="invert">反选</button></div></div></li>
+        <li><div class="button"><div class="buttonContent"><button type="button" multLookup="gameId" warn="请选择条件">选择</button></div></div></li>
+        <li><div class="button"><div class="buttonContent"><button class="close" type="button">关闭</button></div></div></li>
+    </ul>
+</div>
+
+<script>
+    $(document).ready(function(){
+        //动态添加渠道ID
+        $("#game_ids_add").click(function(){
+
+//            $(".product_id_check").live("mouseleave",function(event){
+//
+//            });
+            var game_id = $("#tencent_run_game .select_class").attr('title');
+            var game_name = $("#tencent_run_game .select_class").text();
+            //var game_name = $(".select_class").attr('text');
+
+            if(!game_id || !game_name) {
+                alertMsg.warn('添加数据出错');
+                return false;
+            }
+
+            game_name = game_name.replace(/\d/g, "");
+            game_name = game_name.replace(/:/g, "");
+
+//            console.log(game_id);
+//            console.log(game_name);
+
+            //var textinput = "<div class=\"unit\"><label><input type=\"checkbox\" name=\"gameId\" value=\"{id:'1', gamename:'"+game_name+"', gameid:'"+game_id+"'}\" checked/>"+game_name+"</label></div><a href=\"javascript:void(0);\" onclick=\"javascript:bundle_id_delete(this)\" class=\"btnDel\" id=\"del_game_bundle_type\"></a>";
+            var textinput = "<div class=\"unit\"><label><input type=\"checkbox\" name=\"gameId\" value=\"{id:'1', gamename:'"+game_name+"', gameid:'"+game_id+"'}\" checked/>"+game_name+"</label></div>";
+
+            $("#bundle_id_input").append(textinput);
+
+//            var r_num = Math.floor(Math.random()*99+1);
+//            var textinput = "<div class=\"unit\"><select class=\"combox\" name=\"game_bundle_type[]\"><{foreach from=$commonTypeArr[9] item=v name=foo}><option label=\"<{$v['name']}>\" value=\"<{$v['id']}>\"><{$v['name']}></option><{/foreach}></select><input type=\"text\" size=\"50\" class=\"product_id_check\" id=\"game_bundle_id_"+r_num+"\" name=\"game_bundle_id[]\" value=\"\"/><a href=\"javascript:void(0);\" onclick=\"javascript:bundle_id_delete(this)\" class=\"btnDel\" id=\"del_game_bundle_type\"></a></div>";
+
+
+
+        });
+    });
+</script>

@@ -1,0 +1,214 @@
+/*Index css*/
+.indexPage .aglLeft{width:656px; float:left;}
+.indexPage .h-img-b{margin-bottom:30px;}
+.indexPage .h-img-b a{display:block;}
+.indexPage #newGame-Recommend .aglBody{height:170px; /*overflow:hidden;*/}
+.indexPage #slide-ngr{margin-bottom:28px;}
+.indexPage #slide{width:313px; height:215px; float:left; margin-right:30px;}
+.indexPage #newGame-Recommend{width:313px; float:left;}
+.indexPage #gameHeat{margin-bottom:40px;}
+.indexPage .aglcLeft{float:left;}
+.indexPage #device-game-kind{width:156px;}
+.indexPage #deviceKind{margin-bottom:40px;}
+.indexPage .dk-a{display:block; height:43px; background-image:url(../img/deviceIconNormal.jpg); background-repeat:no-repeat;}
+.indexPage .dk-ios{background-position:0 0;}
+.indexPage .dk-android{background-position:0 -44px;}
+.indexPage .dk-wp{background-position:0 -88px;}
+.indexPage .dk-a:hover{background-image:url(../img/deviceIconHover.jpg);}
+.indexPage #tab3{width:470px; float:right;}
+.indexPage .aglRight{float:right; width:314px;}
+.indexPage .h-img-s{margin-bottom:30px;}
+.indexPage .h-img-s a{display:block;}
+.indexPage #hotActivity{margin-bottom:40px;}
+.indexPage #hotPacks{margin-bottom:40px;}
+.indexPage .gameHot{width:656px; height:200px; background:url(../img/gameHotBg.jpg) no-repeat; position:relative; /*overflow:hidden;*/}
+.indexPage .gameStatistics b{display:block; position:absolute; bottom:0; width:55px; cursor:pointer; font-size:12px; text-align:center; z-index:9;}
+.indexPage .gameStatistics em{display:block;}
+.indexPage .gameStatistics i{font-size:12px; color:#fff; display:block; width:55px; height:24px; line-height:24px; text-align:center; bottom:0; position:absolute; font-style:italic;}
+.indexPage .statistics-1 b{left:25px; background:#ff5766;}
+.indexPage .statistics-2 b{left:105px; background:#545454}
+.indexPage .statistics-3 b{left:185px; background:#bddf55;}
+.indexPage .statistics-4 b{left:265px; background:#81c4e7;}
+.indexPage .statistics-5 b{left:345px; background:#ffb069}
+.indexPage .statistics-6 b{left:425px; background:#d4101f;}
+.indexPage .statistics-7 b{left:505px; background:#90ab41;}
+.indexPage .statistics-8 b{left:585px; background:#3b5869}
+.indexPage .gameStatistics strong{display:none; background:#545454; height:30px; line-height:30px; font-size:12px; color:#fff; border-radius:15px; position:absolute; padding:0 15px; font-weight:normal; z-index:10;}
+.indexPage .gameStatistics strong a{text-decoration:none; color:#fff;}
+.indexPage .statistics-1 strong{left:10px;}
+.indexPage .statistics-2 strong{left:90px;}
+.indexPage .statistics-3 strong{left:170px;}
+.indexPage .statistics-4 strong{left:250px;}
+.indexPage .statistics-5 strong{left:330px;}
+.indexPage .statistics-6 strong{left:410px;}
+.indexPage .statistics-7 strong{left:490px;}
+.indexPage .statistics-8 strong{right:0;}
+.indexPage .gameStatistics strong img{width:20px; height:20px; float:left; margin:5px 5px 0 0; display:block;}
+.indexPage .gameStatistics strong span{display:block; float:left; height:20px; line-height:20px; margin:5px 0 0 0;}
+.indexPage .gameStatistics strong p{width:10px; height:7px; position:absolute; bottom:-7px; left:35px;  background:url(../img/arrowBottom.png) no-repeat;}
+.indexPage .statistics-8 strong p{left:auto; right:40px;}
+.indexPage li.paginationLi{text-align:right; background:none; padding:0}
+.indexPage .pagination{ font-size: 12px; text-decoration: none; display: inline-block; color: #565656; border: 1px solid #cacaca; height: 20px; line-height: 20px; padding: 0 10px; margin-left: 10px; }
+.indexPage .pagination:hover,.indexPage .pagination.pageCur { background-color: #cf1220; border: 1px solid #cf1220; color: #ffffff; }
+/*Single css*/
+.singelPage #main{border:1px #dddddd solid;}
+.singelPage #primary{width:649px; padding:0 30px 0 20px; margin-right:-1px; border-right:1px #ddd solid; float:left;}
+.singelPage #sidebar{width:298px; float:right; padding:25px 0 0 0; border-left:1px #ddd solid;}
+/*.singelPage #game-Brief{padding:30px 0 0 0; margin-bottom:25px;} edit by zwj on 12.15*/
+.singelPage #game-Brief{padding:30px 30px 20px 20px; margin-bottom:25px; background:#f5f5f5; border-bottom:1px #dbdbdb solid; margin:0 -30px 25px -20px;}
+.singelPage .gb-body-download ul li{padding:8px 0; border-bottom:1px #eeeeee solid;}
+.singelPage .gb-body-download td{vertical-align:top;}
+.singelPage .gbb-device{display:inline-block; padding-left:35px; width:65px; height:36px; line-height:36px; font-size:16px; color:#888888; margin:2px 0;}
+.singelPage .iphoneIcon{background:url(../img/iPhoneIcon.png) 6px center no-repeat;}
+.singelPage .ipadIcon{background:url(../img/iPadIcon.png) 1px center no-repeat;}
+.singelPage .downloadIcon{display:inline-block; width:166px; padding-left:27px; height:36px; line-height:36px; text-decoration:none; color:#fff; font-size:13px; color:#666666; border-radius:4px; background:#f5f5f5 url(../img/downloadIconSNormal.png) 6px center no-repeat; text-align:center; text-indent:-13px; margin:2px 9px;}
+.singelPage .downloadIcon:hover{background:#369ffb url(../img/downloadIconSHover.png) 6px center no-repeat; color:#fff;}
+.singelPage .gbb{width:100%; overflow:auto}
+.singelPage .gbb-Screenshot{width:3000px}
+.singelPage .gbb-Screenshot img{float:left; margin-right:3px; display:block; height:300px}
+.singelPage .summary{font-size:13px; color:#888; line-height:26px}
+.singelPage .commentBlock{line-height:24px; padding-bottom:6px; border-bottom:1px #eee solid}
+.singelPage .commentBlock h2{font-size:14px; color:#333; font-weight:normal}
+.singelPage .commentBlock p{margin-top:5px; font-size:14px; line-height:26px; color:#888;}
+.singelPage .commentBlock b{font-size:14px; color:#888; font-weight:normal; float:right}
+.singelPage .commentBlock b a{text-decoration:none; color:#888}
+.singelPage .commentBlock .clickIcon{display:inline-block; width:16px; height:16px}
+.singelPage .commentBlock b span{margin:0 5px}
+.singelPage .commentBlock .zanIcon{background:url(../img/zanIconNormal.jpg) no-repeat}
+.singelPage .commentBlock .caiIcon{background:url(../img/caiIconNormal.jpg) no-repeat}
+.singelPage .commentBlock a:hover .zanIcon{background:url(../img/zanIconHover.jpg) no-repeat}
+.singelPage .commentBlock a:hover .caiIcon{background:url(../img/caiIconHover.jpg) no-repeat}
+.singelPage .nameTd{width:50px}
+.singelPage .commentContent td{padding:5px 0}
+.singelPage input.commentText{height:20px; line-height:20px; padding:5px 10px; border:1px #ddd solid; font-family:'Microsoft YaHei'}
+.singelPage textarea.commentArea{resize:none; width:100%; height:80px; line-height:20px; box-sizing:border-box; -moz-box-sizing:border-box; padding:5px 10px; font-family:'Microsoft YaHei'; font-size:14px; border:1px #dddddd solid; background:#ebebeb}
+.singelPage input.commentSubmit{background:#2183d5; border:none; text-align:center; height:40px; line-height:40px; font-size:16px; width:110px; cursor:pointer; font-family:'Microsoft YaHei'; color:#fff}
+.singelPage input.commentSubmit:hover{background:#369ffb; color:#fff}
+.singelPage .commentContent{padding-bottom:10px; background:url(../img/line.png) center bottom repeat-x; margin-bottom:10px}
+.singelPage #otherLove table td{vertical-align:top;}
+.singelPage .ss-img-s a{display:block; border-top:1px #ddd solid; border-bottom:1px #ddd solid;}
+.singelPage .ss-img-s a img{display:block; max-width:100%; height:auto; vertical-align:middle;}
+.singelPage .aglsblock{margin-bottom:40px;}
+/*Search*/
+.searchPage #primary{width:670px; float:left;}
+.searchPage #sidebar{width:300px; float:right;}
+.searchPage #gameBrief{padding:30px 20px 20px 20px; border:1px #dddddd solid; margin-bottom:30px;}
+.searchPage #rankingTab{border:1px #ddd solid; padding-top:24px; margin-bottom:20px;}
+.searchPage #choiceCollection{border:1px #ddd solid; padding-top:24px;}
+.searchPage #fail{padding-left:150px; margin-bottom:70px;}
+.searchPage #fail h1{font-size:24px; color:#333; height:36px; line-height:36px; margin-bottom:59px;}
+.searchPage #fail p{font-size:18px; color:#333; height:36px; line-height:36px; margin-bottom:6px;}
+.searchPage .report{height:34px;}
+.searchPage .report input{float:left;}
+.searchPage input.reportName{height:20px; line-height:20px; padding:6px 10px; border:1px #cf1220 solid; font-family:'Microsoft YaHei'; background:#fff; font-size:13px; color:#888; width:258px;}
+.searchPage input.reportSubmit{background:#cf1220; border:none; text-align:center; height:34px; line-height:34px; font-size:14px; width:80px; cursor:pointer; font-family:'Microsoft YaHei'; color:#fff}
+.searchPage input.reportSubmit:hover{background:#e81523}
+/*GameList*/
+.gameListPage #primary{width:670px; float:right;}
+.gameListPage #sidebar{width:300px; float:left;}
+.gameListPage #gameKind{border:1px #ddd solid; padding-top:24px; margin-bottom:10px;}
+.gameListPage #threeButton li{margin-bottom:10px;}
+.gameListPage #threeButton .tb-a{display:block; height:50px; line-height:50px; font-size:18px; color:#333333; text-align:center;}
+.gameListPage #threeButton .tb-a-ios{background:url(../img/iosButtonNormal.jpg) no-repeat;}
+.gameListPage #threeButton .tb-a-ios:hover{background:url(../img/iosButtonHover.jpg) no-repeat;}
+.gameListPage #threeButton .tb-a-android{background:url(../img/androidButtonNormal.jpg) no-repeat;}
+.gameListPage #threeButton .tb-a-android:hover{background:url(../img/androidButtonHover.jpg) no-repeat;}
+.gameListPage #threeButton .tb-a-{background:url(../img/5starsButtonNormal.jpg) no-repeat;}
+.gameListPage #threeButton .tb-a-:hover{background:url(../img/5starsButtonHover.jpg) no-repeat;}
+.gameListPage #rankingTab{border:1px #ddd solid; padding-top:24px;}
+.gameListPage .aboutInformation li{margin-top:14px;}
+.gameListPage .hotGame{background:#f7f7f7;}
+/*SearchGame*/
+.searchGamePage #primary{width:670px; float:right;}
+.searchGamePage #sidebar{width:300px; float:left;}
+.searchGamePage #gameKind{border:1px #ddd solid; padding-top:24px; margin-bottom:20px;}
+.searchGamePage #rankingTab{border:1px #ddd solid; padding-top:24px;}
+.searchGamePage .searchHead{font-size:24px; color:#333; height:59px; line-height:59px; border-bottom:1px #ddd solid;}
+.searchGamePage .searchHead img{float:left; margin:9px 13px 0 0;}
+.searchGamePage .searchOptions{padding:0 20px;}
+.searchGamePage .searchOptions td{background:url(../img/bottomLine2.png) center bottom repeat-x; padding-bottom:11px;}
+.searchGamePage .searchOptions td.otherLine{background:url(../img/bottomLine3.png) center bottom repeat-x;}
+.searchGamePage .searchOptions td b{display:block; width:84px; height:29px; line-height:29px; font-size:16px; color:#fff; text-align:center; margin:10px 0 0;}
+.searchGamePage .searchOptions td b.deviceIcon{background:url(../img/deviceIcon.png) no-repeat;}
+.searchGamePage .searchOptions td b.connectIcon{background:url(../img/connetIcon.png) no-repeat;}
+.searchGamePage .searchOptions td b.kindIcon{background:url(../img/kindIcon.png) no-repeat;}
+.searchGamePage .searchOptions td a{padding:0 10px; height:29px; line-height:29px; font-size:16px; color:#888888; margin:10px 11px 4px; display:inline-block;}
+.searchGamePage .searchOptions td a:hover,.searchGamePage .searchOptions td a.select{background:#666666; color:#fff;}
+.searchGamePage .searchList{padding-top:27px;}
+.searchGamePage .Pagination{margin:33px 0 10px;}
+
+.searchGamePage #threeButton li{margin-bottom:10px;}
+.searchGamePage #threeButton .tb-a{display:block; height:50px; line-height:50px; font-size:18px; color:#333333; text-align:center;}
+.searchGamePage #threeButton .tb-a-ios{background:url(../img/iosButtonNormal.jpg) no-repeat;}
+.searchGamePage #threeButton .tb-a-ios:hover{background:url(../img/iosButtonHover.jpg) no-repeat;}
+.searchGamePage #threeButton .tb-a-android{background:url(../img/androidButtonNormal.jpg) no-repeat;}
+.searchGamePage #threeButton .tb-a-android:hover{background:url(../img/androidButtonHover.jpg) no-repeat;}
+.searchGamePage #threeButton .tb-a-{background:url(../img/5starsButtonNormal.jpg) no-repeat;}
+.searchGamePage #threeButton .tb-a-:hover{background:url(../img/5starsButtonHover.jpg) no-repeat;}
+.searchGamePage .aboutInformation li{margin-top:14px;}
+.searchGamePage .hotGame{background:#f7f7f7;}
+/*iOSGame*/
+#page.iOSGamePage{width:100%;}
+.iOSGamePage #main{width:1000px; margin:0 auto; margin-bottom:20px;}
+.iOSGamePage #primary{width:670px; float:left;}
+.iOSGamePage #sidebar{width:300px; float:right;}
+.iOSGamePage .iOSHead{height:59px; line-height:59px; font-size:24px; color:#333; border-bottom:1px #ddd solid;}
+.iOSGamePage .iOSHead img.iPhoneImg{float:left; margin:5px 13px 0 0;}
+.iOSGamePage .iOSHead img.iPadImg{float:left; margin:11px 13px 0 0;}
+.iOSGamePage .iOSPicLink{padding:25px 0 15px; border-bottom:1px #ddd solid;}
+.iOSGamePage .iOSPicLink ul{margin-left:-11px;}
+.iOSGamePage .iOSPicLink ul li{width:227px; display:block; box-sizing:border-box; -moz-box-sizing:border-box; padding-left:11px; float:left;}
+.iOSGamePage .iOSPicLink ul li a{display:block; height:120px; background-position:center center; background-repeat:no-repeat; background-size:cover; position:relative;}
+.iOSGamePage .iOSPicLink ul li a b{display:block; width:100%; background:url(../img/black60.png) repeat; position:absolute; bottom:0; left:0; font-size:12px; color:#fff; font-weight:normal; height:25px; line-height:25px; padding:0 10px; box-sizing:border-box; -moz-box-sizing:border-box; text-overflow:ellipsis; white-space:nowrap; overflow:hidden;}
+.iOSGamePage .iOSRecommend{padding-top:32px;}
+.iOSGamePage .iosrPoint{padding:0 55px 0 0; width:142px; float:left;}
+.iOSGamePage .iosrPoint a{text-align:center; vertical-align:top;}
+.iOSGamePage .iosrPoint a span{display:block; margin:0 auto; width:110px; height:110px;}
+.iOSGamePage .iosrPoint a span img{display:block; max-width:100%; height:auto; vertical-align:middle; -webkit-border-radius:20px; -moz-border-radius:20px; -o-border-radius:20px; -ms-border-radius:20px; border-radius:20px;}
+.iOSGamePage .iosrPoint a b{font-size:18px; color:#333; display:block; text-align:center; height:36px; line-height:36px; font-weight:bold;overflow:hidden;}
+.iOSGamePage .iosrPoint a p{text-align:center; font-size:13px; color:#888888; margin-top:3px; margin-bottom:4px; height:22px; line-height:22px;}
+.iOSGamePage .iosrPoint a strong{display:block; height:14px; background-image:url(../img/star.png); background-position:left center; background-repeat:repeat-x; margin:0 auto;}
+.iOSGamePage .iosrPoint a strong.fiveStars{width:75px;}
+.iOSGamePage .iosrList{width:473px; float:left;}
+.iOSGamePage #rankingTab{border:1px #ddd solid; padding-top:24px;}
+.iOSGamePage #middle{padding:32px 0 23px; margin-bottom:30px; width:100%; background:#eee;}
+.iOSGamePage .middle{width:1000px; margin:0 auto}
+.iOSGamePage #body{width:1000px; margin:0 auto; margin-bottom:20px;}
+.iOSGamePage #bodyprimary{width:670px; float:left;}
+.iOSGamePage #bodysidebar{width:300px; float:right;}
+.iOSGamePage #bottom{width:1000px; margin:0 auto;}
+.iOSGamePage .gameListHead{background:#f7f7f7; border:1px #ddd solid;}
+.iOSGamePage .gameListHead li{float:left; padding:8px 33px 8px 15px; border-right:1px #ddd solid;}
+.iOSGamePage .gameListHead li.notBR{border-right:none;}
+.iOSGamePage .gameListHead li b{font-size:16px; color:#666; font-weight:bold; display:inline-block; height:26px; line-height:26px;}
+.iOSGamePage .gameListHead li a{height:26px; line-height:26px; color:#666; font-size:16px; padding:0 10px; background:#fff; border:1px #ddd solid; margin:0 4px 0 3px;}
+.iOSGamePage .gameListHead li a:hover,.gameListHead li a.select{background:#f10521; border:1px #f10521 solid; color:#fff;}
+.iOSGamePage .gameListBody{padding-top:46px;}
+.iOSGamePage .gameListBody ul li{width:12.5%;}
+.iOSGamePage .Pagination{margin:33px 0 10px;}
+/*自加*/
+.iOSGamePage .gameListHead li a.gameListDevice{background:#f10521; border:1px #f10521 solid; color:#fff;}
+.iOSGamePage .gameListHead li a.gameListInter{background:#f10521; border:1px #f10521 solid; color:#fff;}
+.iOSGamePage .gameListHead li a.gameListOrder{background:#f10521; border:1px #f10521 solid; color:#fff;}
+
+.searchGamePage .searchOptions td a:hover,.searchGamePage .searchOptions td a.gameListDevice{background:#666666; color:#fff;}
+.searchGamePage .searchOptions td a:hover,.searchGamePage .searchOptions td a.gameListInter{background:#666666; color:#fff;}
+.searchGamePage .searchOptions td a:hover,.searchGamePage .searchOptions td a.gameListType{background:#666666; color:#fff;}
+
+/*跟新*/
+.list-4 td h3 a { font-size:14px; }
+.list-4 td h3 { height:26px; overflow:hidden }
+.list-9 li .rankingName { font-size:14px;}
+.list-11 li a b { height:28px; overflow:hidden;}
+.list-9 li .rankingDownloadIcon { padding-left:28px; right:10px;}
+.list-9 li .rankingName.rankingSelect { width:100px; height:20px; overflow:hidden; }
+
+/*index更新*/
+.indexPage .slides a{display:block; position:relative;}
+.indexPage .slides p{width:100%; font-size:16px; color:#fff; line-height:24px; padding:10px 5px; background:rgba(0,0,0,.8); position:absolute; bottom:0; left:0; box-sizing:border-box; -moz-box-sizing:border-box; text-align:center;}
+
+/*add by zwj at game_info on 12.15*/
+.singelPage .downloadIcon{position:relative;}
+.singelPage .downloadIcon b{display:none; width:160px; height:150px; background:url(../img/qrcode-bg.png); overflow:hidden; position:absolute; z-index:10; right:-165px; top:-57px;}
+.singelPage .downloadIcon b img{width:146px; height:146px; display:block; margin:3px 13px 0px 13px; float:left;}
+.singelPage .downloadIcon:hover b{display:block;}

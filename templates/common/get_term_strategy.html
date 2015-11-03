@@ -1,0 +1,45 @@
+<div class="pageContent">
+    <div class="pageFormContent" layoutH="58">
+        <ul class="tree treeFolder">
+            <li><a onclick="bringBack({term_id:'0',term_name:'根目录'})" href="javascript:">根目录</a>
+            </li>
+            <{foreach from=$list item=vo}>
+                <{if $vo.id==$GET.id}><{continue}><!--上级不能是它本身及其孩子--><{/if}>
+                <li><a onclick="$.bringBack({term_id:'<{$vo.id}>',term_name:'<{$vo.title}>'})" href="javascript:"><{$vo.title}></a>
+                    <{if !empty($vo._child)}>
+                        <ul>
+                            <{foreach from=$vo._child item=child}>
+                                <{if $child.id==$GET.id}><{continue}><!--上级不能是它本身及其孩子--><{/if}>
+                                <li><a onclick="$.bringBack({term_id:'<{$child.id}>',term_name:'<{$child.title}>'})" href="javascript:"><{$child.title}></a><!--二级目录-->
+                                    <{if !empty($child._child)}>
+                                        <ul>
+                                            <{foreach from=$child._child item=childs}>
+                                                <{if $childs.id==$GET.id}><{continue}><!--上级不能是它本身及其孩子--><{/if}>
+                                                <li><a onclick="$.bringBack({term_id:'<{$childs.id}>',term_name:'<{$childs.title}>'})" href="javascript:"><{$childs.title}></a><!--三级目录-->
+                                                    <{if !empty($childs._child)}>
+                                                        <ul>
+                                                            <{foreach from=$childs._child item=childss}>
+                                                                <{if $childss.id==$GET.id}><{continue}><!--上级不能是它本身及其孩子--><{/if}>
+                                                                <li><a href="javascript:" onclick="$.bringBack({term_id:'<{$childss.id}>',term_name:'<{$childss.title}>'})"><{$childss.title}></a></li><!--四级目录-->
+                                                            <{/foreach}>
+                                                        </ul>
+                                                    <{/if}>
+                                                </li>
+                                            <{/foreach}>
+                                        </ul>
+                                    <{/if}>
+                                </li>
+                            <{/foreach}>
+                        </ul>
+                    <{/if}>
+                </li>
+            <{/foreach}>
+        </ul>
+    </div>
+
+    <div class="formBar">
+        <ul>
+            <li><div class="button"><div class="buttonContent"><button class="close" type="button">关闭</button></div></div></li>
+        </ul>
+    </div>
+</div>

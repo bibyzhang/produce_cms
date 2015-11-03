@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>游戏库管理后台</title>
+    <link rel="stylesheet" href="statics//css/login.css" type="text/css" />
+    <script type="text/javascript" src="statics//js/jquery.js"></script>
+    <script type="text/javascript" src="statics//js/jquery.form.js"></script>
+    <script type="text/javascript" src="statics//js/ajaxsubmit.js"></script>
+</head>
+
+<body>
+<div class="container">
+    <form method="post" name="myform" action="index.php?m=admin&c=admin_user&a=login">
+        <{if $error}>
+        <div style="width:295px; height:30px; line-height:30px; padding-left:5px; border:1px solid #dad699; background:#f9f5c7;border-radius: 5px; ">
+            <span height:30px; line-height:30px;font-size:13px; padding-left:20px;color:#7E7E7E; display:inline-block;"><{$error}></span>
+        </div>
+        <{/if}>
+        <input type="hidden" name="action" value="login">
+        <input name="user_name" type="text" class="uname" dataType="require" title="请输入帐号" tabindex="1" />
+        <input name="user_pass" type="password" class="pwd" dataType="require" title="请输入密码" tabindex="2" />
+        <input name="verify_code" type="text" class="verify" dataType="require" title="请输入验证码" tabindex="3" />
+        <img src="index.php?m=admin&c=admin_user&a=verify" width="48" height="24" onclick="this.src='index.php?m=admin&c=admin_user&a=verify&'+Math.random()" id="verify_img"/>
+        <input type="image" src="statics//images/login_btn.gif" class="submit ajax_btn" tabindex="4" />
+    </form>
+    <div class="copy"><a href="http://www..com" target="_blank"></a> 版权所有 &copy; 2013-<{date('Y')}></div>
+</div>
+</body>
+</html>

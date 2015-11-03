@@ -1,0 +1,108 @@
+<div class="pageContent">
+    <div class="tabs" <{if $smarty.get.a=='chang_user_pass'}>currentIndex="1"<{/if}> eventType="click">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+            <ul>
+                <!--<li><a href="javascript:;"><span>修改资料</span></a></li>-->
+                <li><a href="javascript:;"><span>修改密码</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="tabsContent">
+        <div>
+            <!-- edit info -->
+            <form method="post" action="?action=sys&opt=editUser" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">
+                <input type="hidden" name="stage" value='info' />
+                <div class="pageFormContent nowrap" layoutH="92">
+                    <div class="unit">
+                        <label>登录名：</label>
+                        <{$uData.uName}>
+                    </div>
+                    <div class="unit">
+                        <label>真实姓名：</label>
+                        <input type="text" name="truename" size="30" class="required" value="<{$uData.truename}>"  />
+                    </div>
+                    <div class="unit">
+                        <label>性别：</label>
+                        <input type="radio" name="sex" value="男" <{if $uData.sex=='男'}>checked<{/if}> />男<input type="radio" name="sex" value="女" <{if $uData.sex=='女'}>checked<{/if}> />女
+                    </div>
+                    <div class="unit">
+                        <label>部门：</label>
+                        <select class="combox required" name="dept" ref="dept_position" refurl="/?action=ajax&opt=get_postition_list&did={value}">
+                            <option value="0">请选择一个部门</option>
+                            <{foreach $dpData as $d}><option value="<{$d.id}>" <{if $uData.dept==$d.id}>selected<{/if}>><{$d.name}></option><{/foreach}>
+                        </select>
+                        <span style="color:red">* 必填</span>
+                    </div>
+                    <div class="unit">
+                        <label>职位：</label>
+                        <select class="combox required" name="position" id="dept_position">
+                            <option value="0">请选择一个职位</option>
+                            <{foreach $posData as $d}><option value="<{$d.id}>" <{if $uData.position==$d.id}>selected<{/if}>><{$d.name}></option><{/foreach}>
+                        </select>
+                        <span style="color:red">* 必填,职位名称已调整</span>
+                    </div>
+                    <div class="unit">
+                        <label>职务说明：</label>
+                        <input type="text" name="position_desc" size="30" value="<{$uData.position_desc}>"  />
+                    </div>
+                    <div class="unit">
+                        <label>E-mail：</label>
+                        <input type="text" name="email" class="email" size="30" value="<{$uData.email}>"  />
+                    </div>
+                    <div class="unit">
+                        <label>办公室内线号码：</label>
+                        <input type="text" name="office_phone" class="number" size="20" value="<{$uData.office_phone}>"  />
+                    </div>
+                    <div class="unit">
+                        <label>手机号码：</label>
+                        <input type="text" name="mobile" class="phone" size="20" value="<{$uData.mobile}>"  />
+                    </div>
+                </div>
+                <div class="formBar">
+                    <ul>
+                        <li><div class="buttonActive"><div class="buttonContent"><button type="submit">确定</button></div></div></li>
+                        <li><div class="button"><div class="buttonContent"><button type="Button" class="close">取消</button></div></div></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+        <div>
+            <!-- 修改 密码 -->
+            <!--<form method="post" action="?action=sys&opt=editUser&callbackType=forward&forwardUrl=http://open-sun.weedong.com/" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">-->
+            <form method="post" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">
+                <input type="hidden" name="stage" value='pass' />
+                <div class="pageFormContent nowrap" layoutH="92">
+                    <div class="unit">
+                        <label style="width:60px">登录名：</label>
+                        <{$uData.user_name}>
+                    </div>
+                    <div class="unit">
+                        <label style="width:60px">原密码：</label>
+                        <input type="password" name="old_pass" size="30" class="required" />
+                    </div>
+                    <div class="unit">
+                        <label style="width:60px">新密码：</label>
+                        <input type="password" name="user_pass" id="user_pass" size="30" class="required" />
+                    </div>
+                    <div class="unit">
+                        <label style="width:60px">确认密码：</label>
+                        <input type="password" name="auth_pass" size="30" class="required" />
+                    </div>
+                    <div class="divider"></div>
+                </div>
+                <div class="formBar">
+                    <ul>
+                        <li><div class="buttonActive"><div class="buttonContent"><button type="submit">确定</button></div></div></li>
+                        <li><div class="button"><div class="buttonContent"><button type="Button" class="close">取消</button></div></div></li>
+                    </ul>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="tabsFooter">
+        <div class="tabsFooterContent"></div>
+    </div>
+</div>
+</div>

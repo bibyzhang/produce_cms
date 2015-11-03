@@ -1,0 +1,15 @@
+<!-- 在线编辑器 -->
+<div class="unit">
+    <label><{$text_desc}>:</label>
+    <textarea class="editor" name="<{$text_name}>"
+              id="<{$text_id}>">
+        <{if !empty($gbdata[$text_name])}><{$gbdata[$text_name]}><{/if}>
+    </textarea>
+</div>
+<!-- 在线编辑器 -->
+
+<script>
+$(document).ready(function(){
+    $('#<{$text_id}>').xheditor({tools:'<{$text_tool}>',skin:'o2007blue',width:800,height:"<{$height}>",upImgUrl:"index.php?m=common&c=common_action&a=xheditor_image_up&img_type=<{$img_type}>&img_category=<{$img_category}>&upload_id=<{$upload_id}>",upImgExt:"jpg,jpeg,gif,png",emotPath:'<{$IMAGE_PATH}>statics/xheditor/xheditor_emot/',html5Upload:false,internalScript:true,inlineScript:true});
+});
+</script>

@@ -1,0 +1,193 @@
+<div class="tabs">
+    <div class="tabsHeader">
+        <div class="tabsHeaderContent">
+            <ul>
+                <li class="selected"><a href="javascript:void(0);"><span>项目</span></a></li>
+                <li><a href="javascript:void(0);"><span>栏目</span></a></li>
+                <li><a href="javascript:void(0);"><span>菜单</span></a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="tabsContent">
+        <!-- 项目 -->
+        <form method="post" action="index.php?m=admin&c=system&a=addmenu" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">
+            <input type="hidden" name="type" value='1'/>
+            <input type="hidden" name="pid" value='0'/>
+            <input type="hidden" name="cid" value='0'/>
+            <div class="pageFormContent">
+                <p><label>所属模块:</label>
+                    <select name="mid" class="combox">
+                        <option value ="0">-请选择项目-</option>
+                        <option value ="1">系统管理</option>
+                        <option value ="2">游戏库管理</option>
+                        <option value ="3">数据管理</option>
+                    </select>
+                </p>
+                <p><label>项目名称</label>
+                    <input type="text" name="name" size ="30" class="required"/>
+                </p>
+                <p><label>模块名称</label>
+                    <input type="text" name="m" size ="30" class="required"/>
+                </p>
+                <p><label>排序</label>
+                    <input type="text" name="order_id" size="8" value="0"/>
+                </p>
+                <p><label>是否显示</label>
+                    <input type="radio" name="state" value="1" checked="checked"/>正常<input type="radio" name="state" value="0"/>隐藏
+                </p>
+                <p></p>
+                <div class="formBar">
+                    <ul>
+                        <li>
+                            <div class="buttonActive"><div class="buttonContent"><button type="submit">确定</button></div></div>
+                        </li>
+                        <li>
+                            <div class="button"><div class="buttonContent"><button type="Button" class="close">取消</button></div></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <!-- 项目 -->
+
+        <!-- 栏目 -->
+        <form method="post" action="index.php?m=admin&c=system&a=addmenu" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">
+            <input type="hidden" name="type" value='2'/>
+            <input type="hidden" name="cid" value='0'/>
+            <div class="pageFormContent">
+                <p><label>所属模块:</label>
+                    <select name="mid" class="combox" ref="get_pro_id" refurl="index.php?m=ajax&c=ajax&a=get_menu_m&mid={value}">
+                        <option value ="0">-请选择项目-</option>
+                        <option value ="1">系统管理</option>
+                        <option value ="2">游戏库管理</option>
+                        <option value ="3">数据管理</option>
+                    </select>
+                </p>
+                <p><label>项目</label>
+                    <select class="combox" name="pid" id="get_pro_id">
+                        <option value ="0">-请选择项目-</option>
+                    </select>
+                </p>
+                <!--
+                <p><label>项目</label>
+                    <select name="pid">
+                        <option value ="0">-请选择项目-</option>
+                        <{foreach item=p from=$pro_list}>
+                        <option value ="<{$p.id}>"><{$p.name}></option>
+                        <{/foreach}>
+                    </select>
+                </p>
+                -->
+                <p><label>栏目名称</label>
+                    <input type="text" name="name" size ="30" class="required"/>
+                </p>
+                <p><label>模块名称(m)</label>
+                    <input type="text" name="m" size="30" class="required"/>
+                </p>
+                <p><label>操作类名(c)</label>
+                    <input type="text" name="c" size ="30" class="required"/>
+                </p>
+                <p><label>排序</label>
+                    <input type="text" name="order_id" size ="8"  value="0"/>
+                </p>
+                <p><label>是否显示</label>
+                    <input type="radio" name="state" value="1" checked="checked"/>正常<input type="radio" name="state" value="2" />隐藏
+                </p>
+                <div class="formBar">
+                    <ul>
+                        <li>
+                            <div class="buttonActive"><div class="buttonContent"><button type="submit">确定</button></div></div>
+                        </li>
+                        <li>
+                            <div class="button"><div class="buttonContent"><button type="Button" class="close">取消</button></div></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <!-- 栏目 -->
+
+        <!-- 菜单 -->
+        <form method="post" action="index.php?m=admin&c=system&a=addmenu" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">
+            <input type="hidden" name="type" value='3'/>
+            <div class="pageFormContent">
+                <!--<p><label>所属应用:</label>
+                    <select name="mid" class="combox">
+                        <option value ="0">-请选择项目-</option>
+                        <option value ="1">91wan应用大全</option>
+                        <option value ="2"></option>
+                    </select>
+                </p>
+                <p><label>项目</label>
+                    <select name="pid" class="combox" ref="own_id" refurl="index.php?m=ajax&c=ajax&a=get_menu_c&pid={value}">
+                        <option value ="0">-请选择项目-</option>
+                        <{foreach item=p from=$pro_list}>
+                        <option value ="<{$p.id}>"><{$p.name}></option>
+                        <{/foreach}>
+                    </select>
+                </p>
+                <p><label>栏目</label>
+                    <select class="combox" name="cid" id="own_id">
+                        <option value="0">--请选择栏目--</option>
+                    </select>
+                </p>-->
+
+                <p><label>所属模块:</label>
+                    <select name="mid" class="combox" ref="get_pros_id" refurl="index.php?m=ajax&c=ajax&a=get_menu_m&mid={value}">
+                        <option value ="0">-请选择项目-</option>
+                        <option value ="1">系统管理</option>
+                        <option value ="2">游戏库管理</option>
+                        <option value ="3">数据管理</option>
+                    </select>
+                </p>
+                <p><label>项目</label>
+                    <select class="combox" name="pid" id="get_pros_id" ref="get_l_id" refUrl="index.php?m=ajax&c=ajax&a=get_menu_c&pid={value}">
+                        <option value ="0">-请选择项目-</option>
+                    </select>
+                </p>
+
+                <p><label>栏目</label>
+                    <select class="combox" name="cid" id="get_l_id">
+                        <option value="0">--请选择栏目--</option>
+                    </select>
+                </p>
+
+                <p><label>菜单名称</label>
+                    <input type="text" name="name" size ="30" class="required"/>
+                </p>
+                <p><label>模块名称(m)</label>
+                    <input type="text" name="m" size="30" class="required"/>
+                </p>
+                <p><label>操作类名(c)</label>
+                    <input type="text" name="c" size ="30" class="required"/>
+                </p>
+                <p><label>控制参数(a)</label>
+                    <input type="text" name="a" size ="30"/>
+                </p>
+                <p><label>排序</label>
+                    <input type="text" name="order_id" size ="8"  value="0" />
+                </p>
+                <p><label>是否显示</label>
+                    <input type="radio" name="state" value="1" checked="checked" />正常<input type="radio" name="state" value="2" />隐藏
+                </p>
+                <div class="formBar">
+                    <ul>
+                        <li>
+                            <div class="buttonActive"><div class="buttonContent"><button type="submit">确定</button></div></div>
+                        </li>
+                        <li>
+                            <div class="button"><div class="buttonContent"><button type="Button" class="close">取消</button></div></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+        <!-- 菜单 -->
+
+    </div>
+
+    <div class="tabsFooter">
+        <div class="tabsFooterContent"></div>
+    </div>
+</div>

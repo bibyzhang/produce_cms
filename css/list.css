@@ -1,0 +1,126 @@
+/*list One css*/
+/*.list-1 { margin-bottom: 30px; }
+.list-1 ul{border:1px #e9e9e9 solid; padding:7px 0;}
+.list-1 li { float: left; display: block; width: 14.285%; height:20px; *width:126px; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; padding-left:10px; padding-right: 6px; }
+.list-1 li a.gameName { line-height: 22px; font-size: 12px; color: #333; display: block; height: 22px; max-width: 132px; float:left; }
+.list-1 li a.gameName span { float: left; height: 20px; line-height: 20px; }
+.list-1 li a.gameName img { vertical-align: middle; float: left; margin-right: 7px; width:20px; height:20px; }
+.list-1 li a.gameName:hover { color: #f10521; }
+.list-1 li a.gameZone { display: block; width: 10px; height: 10px; float: right; background: url(../img/gameZoneIcon.png) no-repeat; margin: 6px 0; }*/
+.list-1{margin-bottom:15px; border:1px #e9e9e9 solid; padding:7px 0;}
+.list-1 ul{padding:0 6px 0 10px; float:left; display:block; width:14.285%; box-sizing: border-box; -moz-box-sizing: border-box; -ms-box-sizing: border-box; list-style:none; background:url(../img/gameIconLine.png) right center no-repeat;}
+.list-1 ul.lastUl{background:none;}
+.list-1 li{height:22px;}
+.list-1 li a.gameName{ line-height: 22px; font-size: 12px; color: #333; display: block; height: 22px; float:left; max-width:108px; overflow:hidden; }
+.list-1 li a.gameName:hover { color: #f10521; }
+.list-1 li a.gameZone { display: block; width: 10px; height: 10px; float: left; background: url(../img/gameZoneIcon.png) no-repeat; margin: 6px 0; margin-left:8px; }
+
+/*list Two css*/
+.list-2 ul{margin-left:-10px; margin-right:-10px;}
+.list-2 li { width: 25%; float: left; display: block; box-sizing: border-box; -moz-box-sizing: border-box; text-align: center; }
+.list-2 li a { letter-spacing: -1px; color: #333; font-size: 14px; }
+.list-2 li a p { height: 36px; line-height: 34px; overflow: hidden; }
+.list-2 li img { width: 55px; height: 55px; -webkit-border-radius:9px; -moz-border-radius:9px; -o-border-radius:9px; -ms-border-radius:9px; border-radius:9px; }
+.list-2 li a:hover { color: #f10521; }
+/*list Three css*/
+.list-3 ul { background: #f5f5f5; padding: 8px 0; }
+.list-3 li { width: 50%; float: left; text-align: center; }
+.list-3 li a { color: #000; font-size: 14px; padding: 5px; line-height: 36px; }
+.list-3 li a:hover { background: #4f4f4f; color: #fff; }
+/*list Four css*/
+.list-4 .aglHead { padding-left: 10px; }
+.list-4 .aglHead b { display: inline-block; height: 24px; line-height: 24px; border-bottom: 1px #dddddd solid; float: left; font-size: 16px; color: #333; padding: 0 13px; cursor: pointer; }
+.list-4 .aglHead b.select { font-weight: bold; border-bottom: 1px #f10521 solid; }
+.list-4 li { padding: 9px 10px; }
+.list-4 li:nth-child(even) { background: #f5f5f5; }
+.list-4 td { vertical-align: middle; color: #888888; font-size: 12px; }
+.list-4 td h3 a { color: #333; font-size: 16px; line-height: 34px; height: 34px; overflow: hidden; }
+.list-4 td h3 a:hover { color: #f10521; }
+.list-4 td p { font-size: 12px; color: #888888; line-height: 20px; height: 20px; overflow: hidden; }
+.list-4 td .downloadIcon { display: block; width: 70px; height: 25px; background: url(../img/downloadIconNormal.png) no-repeat; }
+.list-4 td .downloadIcon:hover { background: url(../img/downloadIconHover.png) no-repeat; }
+.list-4 img { vertical-align: middle; width: 55px; height: 55px; -webkit-border-radius:9px; -moz-border-radius:9px; -o-border-radius:9px; -ms-border-radius:9px; border-radius:9px; }
+/*list Five css*/
+.list-5 li { height: 52px; margin-bottom: 7px; }
+.list-5 li:hover{background:#f5f5f5;}
+.list-5 li:last-child { margin-bottom: 0; }
+.list-5 li a { color: #666666; font-size: 14px; line-height: 24px; }
+.list-5 li a:hover { color: #f10521; }
+.list-5 li a b { display: block; float: left; width: 86px; height: 52px; background-position: center center; background-repeat: no-repeat; background-size: cover; margin-right: 15px; position:relative;}
+.list-5 li a p { height: 52px; vertical-align: middle; overflow: hidden; }
+/*list Six css*/
+.list-6 .aglHead { margin-bottom: 0; }
+.list-6 td { height: 41px; background: url(../img/bottomLine.png) center bottom repeat-x; vertical-align: middle; }
+.list-6 td a { color: #333; font-size: 14px; }
+.list-6 td a:hover { color: #f10521; }
+.list-6 td .receiveIcon { display: block; width: 38px; height: 20px; background: url(../img/receiveIconNormal.png) no-repeat }
+.list-6 td .receiveIcon:hover { background: url(../img/receiveIconHover.png) no-repeat }
+/*list Seven css*/
+.list-7 .half { width: 50%; float: left; box-sizing: border-box; -moz-box-sizing: border-box; padding: 0 30px 0 0 }
+.list-7 li { height: 26px }
+.list-7 li a { display: block; height: 26px; line-height: 26px; padding-left: 8px; background: url(../img/pointBlack.png) left center no-repeat; font-size: 13px; color: #888; text-decoration: none; white-space: nowrap; text-overflow: ellipsis; overflow: hidden }
+.list-7 li a:hover { color: #ff0000; background: url(../img/pointRed.png) left center no-repeat }
+/*list Eight css*/
+.list-8 li { padding: 0 20px; cursor: pointer; margin-bottom: 9px; }
+.list-8 li:hover { background: #f5f5f5; }
+.list-8 li a { display: block; }
+.list-8 img { width: 55px; height: 55px; vertical-align: middle; display: block; }
+.list-8 h2 { font-size: 16px; line-height: 28px; display: block; height: 28px; overflow: hidden; color: #333; }
+.list-8 p { color: #888888; font-size: 13px; line-height: 27px; margin-left: -20px; }
+.list-8 p span { margin-left: 20px; }
+
+.list-8 img {
+-webkit-border-radius: 9px;
+-moz-border-radius: 9px;
+-o-border-radius: 9px;
+-ms-border-radius: 9px;
+border-radius: 9px;
+}
+
+/*list Nine css*/
+.list-9 li{font-size:16px; color:#333; padding:7px 20px 7px; height:20px; line-height:20px; border-bottom:1px #eee solid; cursor:pointer; position:relative}
+.list-9 li:last-child{border-bottom:none;}
+.list-9 li.rankingSelect{height:50px; background:#f5f5f5}
+.list-9 li .rankingNum{width:20px; display:block; line-height:20px; height:20px; text-align:center; font-size:13px; color:#fff; background:#cdcdcd; position:absolute; left:20px; top:7px}
+.list-9 li .rankingImg{display:none; width:50px; height:50px; position:absolute; left:51px; top:7px; -webkit-border-radius:8px; -moz-border-radius:8px; -o-border-radius:8px; -ms-border-radius:8px; border-radius:8px;}
+.list-9 li .rankingImg.rankingSelect{display:block}
+.list-9 li .rankingName{display:block; position:absolute; left:51px; top:7px; height:20px; line-height:20px; color:#333; font-size:16px; font-weight:normal}
+.list-9 li .rankingName.rankingSelect{left:112px}
+.list-9 li .rankingType{display:block; position:absolute; top:7px; right:20px; font-size:13px; color:#888888; font-weight:normal}
+.list-9 li .rankingType.rankingSelect{bottom:10px; left:112px; top:auto; right:auto}
+.list-9 li .rankingDownloadIcon{width:38px; height:25px; line-height:25px; background:#339ffb url(../img/downloadIconS.png) 8px center no-repeat; text-decoration:none; border-radius:3px; font-size:12px; color:#fff; padding-left:32px; position:absolute; top:8px; right:20px; display:none}
+.list-9 li .rankingDownloadIcon.rankingSelect{display:block}
+.list-9 li .first{background:#f10521}
+.list-9 li .second{background:#f19601}
+.list-9 li .third{background:#f3d200}
+/*list Ten css*/
+.list-10 li{padding-left:15px; background:url(../img/pointGrey.png) left center no-repeat;}
+.list-10 li a{line-height:36px; height:36px; font-size:16px; color:#666666; white-space:nowrap; text-overflow: ellipsis; overflow:hidden; display:block;}
+.list-10 li a:hover{color:#ff0000;}
+/*list Eleven css*/
+.list-11 li{width:20%; float:left; text-align:center; margin-bottom:18px;}
+.list-11 li a span{position:relative; display:inline-block; width:80px; height:80px;}
+.list-11 li a strong{width:80px; height:80px; background:url(../img/hotIcon.png) right top no-repeat; position:absolute; top:0; right:0;}
+.list-11 li a img{vertical-align:top; width:80px; height:80px; -webkit-border-radius:13px; -moz-border-radius:13px; -o-border-radius:13px; -ms-border-radius:13px; border-radius:13px;}
+.list-11 li a b{display:block; font-size:14px; color:#333; line-height:28px; margin-top:6px;}
+.list-11 li a p{font-size:13px; color:#888888; line-height:19px;}
+.list-11 li a:hover b{color:#f10521;}
+/*list Twelve css*/
+.list-12 ul{padding:0 10px; padding-bottom:20px;}
+.list-12 li{width:33.33%; float:left; text-align:center;}
+.list-12 li a{font-size:16px; line-height:32px; color:#333333;}
+.list-12 li a:hover,.list-12 li a.select{color:#f10521;}
+/*list Thirteen css*/
+.list-13 ul{margin-right:-22px;}
+.list-13 li{width:20%; float:left; text-align:center; margin-bottom:20px;}
+.list-13 li a{vertical-align:top; display:inline-block; color:#333;}
+.list-13 li a:hover{color:#f10521;}
+.list-13 li a img{display:block; margin:0 auto; width:55px; height:55px; -webkit-border-radius:9px; -moz-border-radius:9px; -o-border-radius:9px; -ms-border-radius:9px; border-radius:9px;}
+.list-13 li a p{height:34px; line-height:34px; font-size:14px; display:block;overflow:hidden;padding:0 5px;}
+/*list Fourteen css*/
+.list-14 ul{margin-left:-20px;}
+.list-14 ul li{float:left; width:25%; display:block; box-sizing:border-box; -moz-box-sizing:border-box; padding-left:20px;}
+.list-14 ul li a{display:block; color:#333;}
+.list-14 ul li a .a_img{display:block; height:120px; background-position:center center; background-repeat:no-repeat; background-size:cover;}
+.list-14 ul li a .a_name{display:block; line-height:26px; font-size:16px; margin-top:14px;}
+.list-14 ul li a:hover{color:#f10521;}

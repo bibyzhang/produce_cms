@@ -1,0 +1,19 @@
+<!--列表--平台游戏联动-->
+<td>平台:</td>
+<td>
+    <select class="sfilter" name="plat_id" ref="<{$game_ref_id}>" refurl="index.php?m=ajax&c=ajax&a=getPlatGamess&platform_id={value}">
+        <option label="--请选择所属平台--" value="0">--请选择所属平台--</option>
+        <{foreach from=$Platform item=v key=key}>
+        <option label="<{$v}>" value="<{$key}>" <{if !empty($post_arr.pid) && $post_arr.pid==$key}>selected="selected"<{/if}>><{$v}></option>
+        <{/foreach}>
+    </select>
+</td>
+<td>游戏:</td>
+<td>
+    <select class="sfilter" name="game_id" id="<{$game_ref_id}>">
+        <option label="--请选择游戏--" value="0">--请选择游戏--</option>
+        <{foreach from=$gameListArr item=v key=key}>
+        <option label="<{$v.name}>" value="<{$v.id}>" <{if $post_arr.gid==$v.id}>selected="selected"<{/if}>><{$v.name}></option>
+        <{/foreach}>
+    </select>
+</td>

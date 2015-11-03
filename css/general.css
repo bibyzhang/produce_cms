@@ -1,0 +1,87 @@
+/*General One*/
+.aglHead { height: 25px; background: url(../img/aglHead.jpg) center bottom repeat-x; margin-bottom: 20px; }
+.aglHead strong { display: inline-block; height: 24px; line-height: 24px; border-bottom: 1px #f10521 solid; float: left; font-size: 16px; color: #333; padding: 0 2px; }
+.aglHead a { color: #888888; float: right; font-size: 12px; }
+.aglHead a:hover { color: #333; }
+.aglHead span { float: right; display: block; height: 25px; }
+.aglHead span b { display: block; float: left; margin: 5px 0 0 5px; width: 13px; height: 13px; line-height: 13px; text-align: center; background: #f5f5f5; color: #888888; font-size: 12px; border: 1px #888888 solid; cursor: pointer; }
+.aglHead span b.select { background: #cf1220; color: #fff; border: 1px #cf1220 solid; }
+/*General Two*/
+/*.gameBrief-Icon { float: left; }
+.gameBrief-Icon a { display: block; }
+.gameBrief-Icon img { width: 110px; height: 110px; vertical-align: middle; display: block; -webkit-border-radius:20px; -moz-border-radius:20px; -o-border-radius:20px; -ms-border-radius:20px; border-radius:20px;}
+.gameBrief-Text { float: left; margin-left: 20px; }
+.gameBrief-Text h1 { line-height: 18px; }
+.gameBrief-Text h1 a { font-size: 18px; font-weight: bold; color: #333; text-decoration: none; }
+.gameBrief-Text h1 a:hover { color: #f10521; }
+.gameBrief-Text h3 { font-family: Arial; font-size: 13px; line-height: 31px; font-weight: normal; color: #888; margin-bottom: 15px; }
+.gameBrief-Text td { line-height: 23px; font-size: 13px; color: #888; padding-right: 20px; }
+.gameBrief-Interactive { float: right; }
+.gameBrief-Interactive a { text-decoration: none; }
+.praiseButton { font-size: 13px; color: #ff8800; background: url(../img/handIcon.png) center left no-repeat; padding-left: 17px; margin-right: 15px; }
+.gameBrief .commentButton { font-size: 13px; color: #888; background: url(../img/commentIcon.png) center left no-repeat; padding-left: 18px; }
+.gameBrief .gbi-button { padding-top: 20px; text-align: right; }
+.gameBrief .gbi-button p{ width:100%; clear:both;}
+.gameBrief .gbi-button a { display: block; float:right; width: 75px; height: 25px; line-height: 25px; text-align: center; font-size: 12px; color: #fff; background: #339ffb; border-radius: 3px; margin-bottom: 5px; }
+.gameBrief .gbi-button a:hover { background: #0074d7; }*/
+
+/*edit by zwj on 12.15*/
+.gameBrief-Icon { float: left; }
+.gameBrief-Icon a { display: block; }
+.gameBrief-Icon img { width: 110px; height: 110px; vertical-align: middle; display: block; -webkit-border-radius:20px; -moz-border-radius:20px; -o-border-radius:20px; -ms-border-radius:20px; border-radius:20px;}
+.gameBrief-Text { float: left; margin-left: 20px; }
+.gameBrief-Text h1 { line-height: 26px; padding-top:5px; }
+.gameBrief-Text h1 a { font-size: 18px; font-weight: bold; color: #000000; text-decoration: none; }
+.gameBrief-Text h1 a:hover { color: #f10521; }
+.gameBrief-Text h3 { font-family: Arial; font-size: 12px; line-height: 2; font-weight: normal; color: #333333;}
+.gameBrief-Text p { line-height: 2; font-size: 12px; color: #999999; }
+.gameBrief-Text p span{margin:0 9px;}
+.gameBrief-Interactive { line-height:2; overflow:hidden; padding-top:2px;}
+.gameBrief-Interactive a { text-decoration: none; display:block; float:left; }
+.praiseButton { font-size: 12px; color: #cf1220; background: url(../img/handIcon.png) center left no-repeat; padding-left: 20px; margin-right: 12px;}
+.gameBrief .commentButton { font-size: 12px; color: #666666; background: url(../img/commentIcon.png) center left no-repeat; padding-left: 24px;  }
+.gameBrief-share{float:left; font-size:12px; line-height:2; color:#666666; margin-left:20px;}
+.gameBrief-share strong{font-weight:normal; float:left;}
+.gameBrief .jiathis_style{overflow:hidden; margin-top:4px; float:left;}
+.gameBrief-link{float:right;}
+.gameBrief-link li{margin-bottom:10px;}
+.gameBrief-link a{display:block; width:100px; height:30px; text-indent:-9999px;}
+.Evaluation{background:url(../img/pc-btn.png) center left no-repeat;}
+.Zone{background:url(../img/gz-btn.png) center left no-repeat;}
+/*edit by zwj on 12.15*/
+
+
+.gameBrief .gbi-button .Evaluation{background:#cf1220;}
+.gameBrief .gbi-button .Evaluation:hover{background:#e52836;}
+/*Single Head*/
+.singleBlock { margin-bottom: 30px; }
+.single-head { border-top: 1px #eeeeee solid; margin-bottom: 11px; }
+.single-head b { border-top: 3px #cf1220 solid; padding: 0 10px; display: inline-block; height: 28px; line-height: 28px; color: #333; font-size: 16px; }
+/*General Three*/
+.aglsHead { padding: 0 20px; height: 35px; background: url(../img/aglHead.jpg) center bottom repeat-x; margin-bottom: 19px; }
+.aglsHead b { display: inline-block; height: 34px; line-height: 34px; font-size: 16px; color: #333; border-bottom: 1px #ddd solid; margin-right: 20px; cursor: pointer; }
+.aglsHead b.select { border-bottom: 1px #f10521 solid; }
+.aglsHead b strong { display: block; float: left; width: 16px; height: 16px; margin-right: 10px; margin-top: 9px; }
+strong.loveIcon { background: url(../img/hart.png) center center no-repeat; }
+strong.rankingIcon { background: url(../img/rankingIcon.png) center center no-repeat; }
+strong.gameKindIcon { background: url(../img/gameKindIcon.png) center center no-repeat; }
+strong.ccIcon { background: url(../img/collectionIcon.png) center center no-repeat; }
+/*General Four*/
+.collection .aglsBody { padding: 0 20px; }
+.collection li a { display: block; color: #333; }
+.collection li a .a_img { display: block; height: 148px; background-position: center center; background-size: cover; }
+.collection li a .a_title { font-size: 16px; line-height: 24px; display: block; padding: 11px 0 26px; }
+.collection li a:hover { color: #f10521; }
+/*General Five*/
+.Pagination { float: right; line-height: 20px; color: #565656; margin: 60px 0 10px; clear: both; }
+.Pagination span { margin-right: 5px; display: block; float: left; margin-left: 5px; display: none }
+.Pagination span b { padding: 0 2px; }
+.Pagination div { float: left }
+.Pagination a { font-size: 12px; text-decoration: none; display: block; float: left; color: #565656; border: 1px solid #cacaca; height: 20px; line-height: 20px; padding: 0 10px; margin: 0 2px; }
+.Pagination .Ellipsis { line-height: 32px; overflow: hidden; display: none; }
+cite.FormNum { display: block; float: left; line-height: 20px; height: 20px; font-style: normal; padding-left: 10px; }
+#PageNum { color: #777; width: 30px; height: 20px; line-height: 20px; border: 1px solid #cacaca; margin: 0 5px; text-align: center; }
+.Pagination a:hover, .Pagination a.PageCur { background-color: #cf1220; border: 1px solid #cf1220; color: #ffffff; }
+/*General Six*/
+.gb-head{border-top:1px #eeeeee solid; margin-bottom:11px;}
+.gb-head b{border-top:3px #cf1220 solid; padding:0 10px; display:inline-block; height:28px; line-height:28px; color:#333; font-size:16px;}

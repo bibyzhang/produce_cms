@@ -1,0 +1,14 @@
+<div class="pageContent">
+    <form method="post" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">
+
+        <div class="pageFormContent nowrap" layoutH="60">
+            <!--站点地址（URL）--INPUT-->
+            <{include file="common/input_action.html" input_decs='站点地址（URL）' input_name='siteurl' size='30' custom='class="required"'}>
+            <!-- CDN（URL）--INPUT-->
+            <{include file="common/input_action.html" input_decs='站点地址（URL）' input_name='cndurl' size='30' custom=''}>
+        </div>
+
+        <!--提交按钮-->
+        <{include file="common/commit_button.html"}>
+    </form>
+</div>

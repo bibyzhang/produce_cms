@@ -1,0 +1,137 @@
+<{if !empty($smarty.get.opt) && ($smarty.get.opt=='role_edit' || $smarty.get.opt=='role_add')}>
+
+<!-- 权限增加&&编辑 -->
+<div class="tabs">
+    <div class="pageContent">
+        <form method="post" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}><{if !empty($smarty.get.opt)}>&opt=<{$smarty.get.opt}><{/if}>" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">
+            <input type="hidden" name="opt" value='<{$smarty.get.opt}>'/>
+            <input type="hidden" name="role_id" value='<{$data.role_id}>'/>
+            <div class="pageFormContent">
+                <fieldset>
+                    <dl class="nowrap">
+                        <dt>权限组名称：</dt>
+                        <dd><input name="rolename" type="text" class="required textInput" style="width:160px;" value="<{if !empty($data.rolename)}><{$data.rolename}><{/if}>"></dd>
+                    </dl>
+                    <dl class="nowrap">
+                        <dt>权限组描述：</dt>
+                        <dd><input name="description" type="text" class="required textInput" style="width:160px;" value="<{if !empty($data.description)}><{$data.description}><{/if}>"></dd>
+                    </dl>
+                    <dl class="nowrap">
+                        <dt>排序：</dt>
+                        <dd><input name="listorder" type="text" class="required textInput" style="width:160px;" value="<{if !empty($data.order_num)}><{$data.order_num}><{/if}>"></dd>
+                    </dl>
+                </fieldset>
+                <div class="formBar">
+                    <ul>
+                        <li>
+                            <div class="buttonActive"><div class="buttonContent"><button type="submit">确定</button></div></div>
+                        </li>
+                        <li>
+                            <div class="button"><div class="buttonContent"><button type="Button" class="close">取消</button></div></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- 权限增加&&编辑 -->
+
+<{else}>
+
+<!-- 权限列表 -->
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>&opt=role_add" target="dialog" mask="true"><span>新增权限组</span></a></li>
+        </ul>
+    </div>
+
+    <table class="table"  layoutH="80" width="50%">
+        <thead>
+        <tr>
+            <th>权限组名称</th>
+            <th>权限组描述</th>
+            <th>排序</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <{foreach item=p from=$role_data name=foo}>
+            <tr <{if $smarty.foreach.foo.index %2 ==0}>class="high"<{/if}>>
+            <td><{$p.rolename}></td>
+            <td><{$p.description}></td>
+            <td onclick="editNow(<{$p.role_id}>,'order_num','index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=role_operate&opt=role_order&role_id=<{$p.role_id}>',this);"><{$p.order_num}></td>
+            <td>
+                <a title="分配[<{$p.rolename}>]组权限" class="btnAssign" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=user_permission&role_id=<{$p.role_id}>" target="dialog" max="true">分配[<{$p.rolename}>]组权限</a>
+                <a title="修改[<{$p.rolename}>]组资料" class="btnEdit" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>&opt=role_edit&role_id=<{$p.role_id}>" target="dialog" max="true">修改[<{$p.name}>]组资料</a></td>
+            </tr>
+        <{/foreach}>
+        </tbody>
+    </table>
+</div>
+<script>
+    //就地编辑
+    //id:要编辑的ID;field:要编辑的字段;myurl:提交地址;obj:要编辑的对象,一般为this;
+    function editNow(id,field,myurl,obj){
+        var mythis = $(obj);
+        var dataType = mythis.attr('dataType');
+        mythis = mythis.find('div')[0] ? mythis.find('div') : mythis;
+        if(mythis.hasClass('editing')){//有"正在编辑"标识,返回
+            return false;
+        }
+        var input = $("<input type='text' class='editnow' />");//创建文本框
+        //var oldText = mythis.html();//旧值
+        var oldText=mythis.text();//上面那句会将&变成&amp;反正都不是编辑html的，就用这句吧。
+        input.val(oldText);//设置文本框值
+        inputWidth=mythis.width();//文本框长度等于编辑对象长度
+        input.width(inputWidth);//设置文本框长度
+        mythis.html('');//清空编辑对象
+        input.appendTo(mythis).focus().select();//将文本框加到编辑对象
+        mythis.width(inputWidth);//追加文本框后，编辑对象如td的长度可能会变大，重新设置一下。
+        mythis.addClass('editing');//将编辑对象标识为"正在编辑",这样再次点击时,如果有此标识,就直接返回
+        input.keypress( function(e){//避免有表单时回车提交表单。换成回车后提交本操作
+            var key = window.event ? e.keyCode : e.which;
+            if(key.toString() == "13"){
+                input.blur();
+                return false;
+            }
+        });
+        input.blur(function(event){//文本框失去焦点后提交更新
+            var newText = input.val();//得到新值
+            mythis.html(newText);//将编辑对象设置为新值
+            mythis.removeClass('editing');//取消"正在编辑"标识
+            if(oldText!=newText){//只有新值跟旧值不一样时才提交服务器更新
+                if(dataType){ //编辑对象设置dataType属性，进行数据合法性检验
+                    if(!reg_rule[dataType].test(newText)){
+                        alertMsg.error('无法更新！所填写数据不符合要求！');
+                        mythis.html(oldText);
+                        return false;
+                    }
+                }
+                $.ajax({
+                    url: myurl,
+                    type: "POST",
+                    data: 'id='+id+'&'+field+'='+encodeURIComponent(newText),//这里应该编码一下，否则如果有特殊字符如&会出现问题。注意不能用escape编码，否则中文会出问题。
+                    dataType: "json",
+                    timeout: 20000,
+                    beforeSend: function(){
+                    },
+                    error: function(res){
+                        alertMsg.error('请求失败 ！');
+                        mythis.html(oldText);//如果没有更新成功，编辑对象还原为旧值
+                    },
+                    success:function(response){
+                        alertMsg.info(response.message);
+                        if(response.type!='success'){
+                            mythis.html(oldText);//如果没有更新成功，编辑对象还原为旧值
+                        }
+                    }
+                });
+            }
+        });
+    }
+</script>
+<!-- 权限列表 -->
+
+<{/if}>

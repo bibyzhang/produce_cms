@@ -1,0 +1,39 @@
+<form id="pagerForm" method="post" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>">
+    <input type="hidden" name="pageNum" value="1" />
+    <input type="hidden" name="numPerPage" value="<{$param.numPerPage}>"/>
+    <input type="hidden" name="game_id" value="<{if !empty($post_arr.game_id)}><{$post_arr.game_id}><{/if}>"/>
+</form>
+
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>" method="post">
+        <div class="searchBar">
+            <table class="searchContent" width="80%">
+                <tr>
+                </tr>
+            </table>
+            <!-- 搜索按钮 -->
+            <{include file="common/search_button.html"}>
+        </div>
+    </form>
+</div>
+
+<div class="pageContent">
+
+    <table class="table" width="100%" layoutH="80">
+        <thead>
+        <tr>
+            <th>集合</th>
+        </thead>
+
+        <tbody>
+        <{foreach from=$allKeys item=h name=foo}>
+        <tr <{if $smarty.foreach.foo.index %2 ==0}>class="high"<{/if}>>
+        <td><{$h}></td>
+        </tr>
+        <{/foreach}>
+        </tbody>
+    </table>
+
+    <!-- 分页底栏 -->
+    <{include file="common/paging_footer.html"}>
+</div>

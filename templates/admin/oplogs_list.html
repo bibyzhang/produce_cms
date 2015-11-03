@@ -1,0 +1,66 @@
+<!-- 分页 -->
+<form id="pagerForm" method="post" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>">
+    <input type="hidden" name="user_admin" value="<{if !empty($post_arr.user_admin)}><{$post_arr.user_admin}><{/if}>"/>
+    <input type="hidden" name="ip" value="<{if !empty($post_arr.ip)}><{$post_arr.ip}><{/if}>"/>
+    <input type="hidden" name="keyword" value="<{if !empty($post_arr.keyword)}><{$post_arr.keyword}><{/if}>"/>
+    <input type="hidden" name="startdate" value="<{if !empty($post_arr.startdate)}><{$post_arr.startdate}><{/if}>"/>
+    <input type="hidden" name="enddate" value="<{if !empty($post_arr.enddate)}><{$post_arr.enddate}><{/if}>"/>
+    <input type="hidden" name="pageNum" value="1" />
+    <input type="hidden" name="numPerPage" value="<{$param.numPerPage}>"/>
+</form>
+<!-- 分页 -->
+
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>" method="post">
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <!--所属应用--SELECT-->
+                    <{include file="common/list_select_action.html" select_decs='操作模块' select_name='app_id' select_data=$selectActionArr['app_name'] val='val' desc='desc'}>
+                    <td>日期:</td>
+                    <td><input type="text" name="startdate" size="10" value="<{if !empty($post_arr.startdate)}><{$post_arr.startdate}><{/if}>"  class="Wdate textInput readonly" readonly="true" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>-<input type="text" name="enddate" size="10" value="<{if !empty($post_arr.enddate)}><{$post_arr.enddate}><{/if}>"  class="Wdate textInput readonly" readonly="true" onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"/>
+                    </td>
+                </tr>
+                <tr>
+                    <!--登录帐号--INPUT-->
+                    <{include file="common/list_input_action.html" input_decs='登录帐号' input_name='user_admin' size='' custom='size="30"'}>
+                    <!--IP--INPUT-->
+                    <{include file="common/list_input_action.html" input_decs='IP' input_name='ip' size='' custom='size="15"'}>
+                    <!--关键字--INPUT-->
+                    <{include file="common/list_input_action.html" input_decs='关键字' input_name='keyword' size='' custom='size="30"'}>
+                </tr>
+            </table>
+            <!-- 搜索按钮 -->
+            <{include file="common/search_button.html"}>
+        </div>
+    </form>
+</div>
+
+<div class="pageContent">
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+        <tr>
+            <th>操作应用</th>
+            <th>登录帐号</th>
+            <th>操作时间</th>
+            <th>IP详细</th>
+            <th>操作菜单</th>
+            <th>操作详细</th>
+        </tr>
+        </thead>
+        <tbody>
+        <{foreach from=$data item=h name=foo}>
+        <tr <{if $smarty.foreach.foo.iteration%2==0}> bgcolor="#EAFDFF" <{/if}>>
+            <td><{if $h.app_id==2}>游戏库<{else}>系统管理<{/if}></td>
+            <td><{$h.uName}></td>
+            <td><{$h.logtime|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+            <td><{$h.ip}></td>
+            <td><{$h.menu}></td>
+            <td><{$h.memo}></td>
+        </tr>
+        <{/foreach}>
+        </tbody>
+    </table>
+    <!-- 分页底栏 -->
+    <{include file="common/paging_footer.html"}>
+</div>

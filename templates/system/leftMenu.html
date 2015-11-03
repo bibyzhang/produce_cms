@@ -1,0 +1,22 @@
+<div class="accordion" fillSpace="sidebar">
+    <{foreach item=p from=$menuData}>
+    <div class="accordionHeader">
+        <h2><span>Folder</span><{$p.name}></h2>
+    </div>
+
+    <div class="accordionContent">
+        <ul class="tree treeFolder">
+            <{foreach item=c from=$p.list}>
+            <li><a><{$c.name}></a>
+                <ul>
+                    <{foreach item=m from=$c.list}>
+                    <li><a href="index.php?m=<{$c.m}>&c=<{$m.c}>&a=<{$m.a}>" target="navTab" rel="page<{$m.id}>" title="<{$m.name}>"><{$m.name}></a></li>
+                    <!--<a href="/?action=<{$c.action}>&opt=<{$m.action}><{if $m.act}>&act=<{$m.act}><{/if}>" target="navTab" rel="page<{$m.id}>"><{$m.name}></a>-->
+                    <{/foreach}>
+                </ul>
+            </li>
+            <{/foreach}>
+        </ul>
+    </div>
+    <{/foreach}>
+</div>

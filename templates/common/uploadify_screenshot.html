@@ -1,0 +1,108 @@
+<style>
+    .cur{ display: none;}
+    .img_explain{ margin-left: 110px;}
+    #game_pic_<{$smarty.get.a}>_<{$commontmp}>{ margin-left: 110px;}
+    #gamepicPreview_<{$smarty.get.a}>_<{$commontmp}>{ margin-left: 110px;}
+</style>
+
+<div class="unit">
+    <label><{$upload_desc}>:</label>
+    <!--<div style="border: 1px solid brown; float: left;">-->
+    <!--上传图片预览-->
+    <div id="gamepicPreview_<{$smarty.get.a}>_<{$commontmp}>">
+        <{foreach from=$gamePicData item=v key=key}>
+
+        <!--提交文本存储-->
+        <input name="game_pic[]" class="pic_pre_<{$key}> cur" class="gamepic_url_<{$smarty.get.a}>_<{$commontmp}>" value="<{$v.img_url}>"/>
+        <!--提交文本存储-->
+
+        <img width="<{$v.width/3}>" class="pic_pre_<{$key}>" height="<{$v.height/3}>" src="<{$v.img_url}>" style="border: #dcdcdc solid 1px; margin-left:10px;"><a class="pic_pre_<{$key}>" href="javascript:void(0)" onclick="pic_pre_delete('pic_pre_<{$key}>')">删除</a>
+        <{/foreach}>
+    </div>
+    <!--上传图片预览-->
+
+    <!--上传图片按钮-->
+    <input type="file" name="file_upload" id="game_pic_<{$smarty.get.a}>_<{$commontmp}>"/>
+
+    <!--</div>-->
+    <!--上传图片按钮-->
+    <!--上传说明-->
+    <span class="img_explain" style="color: #7a3b3f;">图片尺寸:{内嵌ios版截图尺寸:598[宽]*402[长]}{其他版本截图尺寸:680[宽]*402[长]}</span><br/>
+    <span class="img_explain" style="color: #ff0000;">可以同时上传多张图片{最多添加5张图片}</span>
+</div>
+
+<script>
+//前端删除图片操作
+var pic_pre_delete = function(value){
+    $('.'+value).remove('.'+value);
+}
+
+$(document).ready(function(){
+    //游戏图标
+    var ajaxbg = $("#background,#progressBar");
+    $(document).ready(function(){
+        var BaseClass = function() {};
+        var i = 6;
+        BaseClass.f1 = function(){//定义静态方法
+            return i++;
+        }
+
+        //游戏介绍截图
+        $(function() {
+            $('#game_pic_<{$smarty.get.a}>_<{$commontmp}>').uploadify({
+                'formData' : {
+                    'user_auth' : '<{$user_auth}>'
+                    //'user_auth' : 'kfofvten5pn61esmvujd4h5ij2'
+                },
+                'swf'      : 'statics/uploadify/scripts/uploadify.swf',
+                'uploader' : '<{$IMAGE_PATH}>index.php?m=common&c=common_action&a=multi_img&img_type=bigimageurl&gid=<{$gbdata.gid}>',
+                'method'   : 'post',
+                'height'   : 30,
+                'width'    : 120,
+                'fileObjName' : 'game_pic',
+                'buttonText' : '<{if empty($gbdata.iconurl)}>上传游戏截图<{else}>上传游戏截图<{/if}>',
+                'folder': 'uploads',
+                'auto'     : true,
+                'multi'    : true,
+                'uploadLimit' : 5,
+
+                'onUploadStart' : function(file) {
+                    ajaxbg.show();
+                },
+                'onUploadComplete' : function(file) {
+                    ajaxbg.hide();
+                },
+                'onUploadSuccess' : function(file, data, response) {
+                    //console.log(data);
+                    var imgpath = JSON.parse(data);
+                    console.log(imgpath.width);
+                    console.log(imgpath.height);
+
+
+                    var imgLen = $("#gamepicPreview_<{$smarty.get.a}>_<{$commontmp}> img").length;
+
+                    if(imgpath.err){
+                        alertMsg.error(imgpath.msg);
+                    }else if(imgLen>=5){
+                        alertMsg.error('最多只能上传5张图片');
+                    }else{
+                        var id_ct = BaseClass.f1();//静态变量
+                        var content = '<input name="game_pic[]" class="pic_pre_'+id_ct+' cur" value="'+imgpath.img_url+'"/>';
+                        //content += '<img width="160" class="pic_pre_'+id_ct+'" height="284" src="'+imgpath.img_url+'" style="border: #dcdcdc solid 1px; margin-left:10px;"><a class="pic_pre_'+id_ct+'" href="javascript:void(0)" onclick="pic_pre_delete(\'pic_pre_'+id_ct+'\')">删除</a>';
+                        content += '<img width="'+imgpath.width/3+'" class="pic_pre_'+id_ct+'" height="'+imgpath.height/3+'" src="'+imgpath.img_url+'" style="border: #dcdcdc solid 1px; margin-left:10px;"><a class="pic_pre_'+id_ct+'" href="javascript:void(0)" onclick="pic_pre_delete(\'pic_pre_'+id_ct+'\')">删除</a>';
+                        //console.log(content);
+                        $("#gamepicPreview_<{$smarty.get.a}>_<{$commontmp}>").append(content);
+                    }
+                },
+                'onFallback' : function() {//检测 FLASH
+                    alertMsg.warn('您的浏览器版本太低不支持文件上传,请更换浏览器！');
+                },
+                'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+                    //alert(errorCode);
+                    //alertMsg.error(file.name + ' 上传失败,详细信息: ' + errorString);
+                }
+            });
+        });
+    });
+});
+</script>

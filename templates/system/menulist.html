@@ -1,0 +1,50 @@
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=addmenu" target="navTab"><span>新增系统菜单</span></a></li>
+            <li><a class="edit" href="index.php?m=common&c=cache_admin&a=menuDataCache" target="ajaxTodo" rel="makecache"><span>缓存系统菜单</span></a></li>
+        </ul>
+    </div>
+
+    <table class="table" width="100%"  layoutH="70">
+        <thead>
+        <tr>
+            <th width="5%">排序</th>
+            <th colspan="3" width="60%">菜单名字</th>
+            <th  width="25%">操作类名</th>
+            <th width="7%">是否显示</th>
+            <th width="3%">操作</th>
+        </tr>
+        </thead>
+        <tbody style="text-align:left">
+        <{foreach item=p from=$menuData}>
+        <tr style="background:#FC9">
+            <td style="text-align:left"><{$p.order_id}></td>
+            <td colspan="3" style="text-align:left"><b><{$p.name}>(#page<{$p.id}>)</b></td>
+            <td style="text-align:left"><{$p.m}></td>
+            <td style="text-align:left"><{if $p.state==1}>正常<{else}>隐藏<{/if}></td>
+            <td style="text-align:left"><a href="/index.php?m=admin&c=system&a=editmenu&id=<{$p.id}>" class="btnEdit" target="dialog" rel="page3" width="500" height="300" title="菜单 - [<{$p.name}>] - 编辑" ></a></td>       
+        </tr>
+        <{foreach item=c from=$p.list}>
+        <tr style="background:#EDF0B6">
+            <td></td><td style="text-align:left"><{$c.order_id}></td>
+            <td colspan="2" style="text-align:left"><{$c.name}>(#page<{$c.id}>)</td>
+            <td style="text-align:left">m=<{$c.m}>&c=<{$c.c}></td>
+            <td style="text-align:left"><{if $c.state==1}>正常<{else}>隐藏<{/if}></td>
+            <td style="text-align:left"><a href="/index.php?m=admin&c=system&a=editmenu&id=<{$c.id}>" class="btnEdit" target="dialog" rel="page3" width="500" height="300" title="菜单 - [<{$p.name}>] - 编辑" ></a></td>
+        </tr>
+        <{foreach item=m from=$c.list}>
+        <tr>
+            <td></td><td></td><td style="text-align:left"><{$m.order_id}></td>
+            <td style="text-align:left"><{$m.name}>(#page<{$m.id}>)</td>
+            <td style="text-align:left" >m=<{$m.m}><{if $m.c}>&c=<{$m.c}><{/if}><{if $m.a}>&a=<{$m.a}><{/if}></td>
+            <td style="text-align:left"><{if $m.state==1}><font color="green">正常</font><{else}><font color="red">隐藏</font><{/if}></td>
+        	<td style="text-align:left"><a href="/index.php?m=admin&c=system&a=editmenu&id=<{$m.id}>" class="btnEdit" target="dialog" rel="page3" width="500" height="300" title="菜单 - [<{$p.name}>] - 编辑" ></a></td>
+        	
+        </tr>
+        <{/foreach}>
+        <{/foreach}>
+        <{/foreach}>
+        </tbody>
+    </table>
+</div>

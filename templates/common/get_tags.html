@@ -1,0 +1,98 @@
+<link href="statics/css/input_select.css" rel="stylesheet">
+
+<div class="pageFormContent" layoutH="98">
+    <div class="unit" id="tag_id">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="input-group" style="width: 300px;">
+                    <input type="text" class="form-control" id="tag_select">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+                        </ul>
+                    </div>
+                    <!-- /btn-group -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <a href="javascript:void(0);" id="tag_ids_add" class="btnAdd">添加游戏:</a>
+    <br />
+
+    <div id="tag_ids_input"></div>
+</div>
+<div class="formBar">
+    <ul>
+        <li><div class="button"><div class="buttonContent"><button type="button" class="checkboxCtrl" group="TagId">全选</button></div></div></li>
+        <li><div class="button"><div class="buttonContent"><button type="button" class="checkboxCtrl" group="TagId" selectType="invert">反选</button></div></div></li>
+        <li><div class="button"><div class="buttonContent"><button type="button" multLookup="TagId" warn="请选择条件">选择</button></div></div></li>
+        <li><div class="button"><div class="buttonContent"><button class="close" type="button">关闭</button></div></div></li>
+    </ul>
+</div>
+
+
+<!--<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>-->
+<!--<script src="http://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+<!--<script src="http:////statics/js/bootstrap-suggest.js"></script>-->
+
+<script>
+
+    /**
+     * 标签搜索
+     */
+    var baiduBsSuggest = $("#tag_select").bsSuggest({
+        allowNoKeyword: false,   //是否允许无关键字时请求数据。为 false 则无输入时不执行过滤请求
+        multiWord: true,         //以分隔符号分割的多关键字支持
+        separator: ",",          //多关键字支持时的分隔符，默认为空格
+        getDataMethod: "url",    //获取数据的方式，总是从 URL 获取
+        idField: "tag_id",
+        keyField: "tag_name",
+        showBtn: false,
+        url: 'index.php?m=common&c=common_action&a=get_tag_data&key=',
+
+        //jsonp: 'cb',                      //如果从 url 获取数据，并且需要跨域，则该参数必须设置
+        processData: function (json) {    // url 获取数据时，对数据的处理，作为 getData 的回调函数
+            var i, len, data = {value: []};
+            if (!json || !json.result || json.result.length === 0) {
+                return false;
+            }
+
+            len = json.result.length;
+
+            jsonStr = "{'value':[";
+            for (i = 0; i < len; i++) {
+                data.value.push({
+                    "tag_id" : json.result[i]['tag_id'],
+                    "tag_name" : json.result[i]['tag_name']
+                });
+            }
+
+            //字符串转化为 js 对象
+            return data;
+        }
+    });
+//    $("form").submit(function(e) {
+//        return false;
+//    });
+
+    $(document).ready(function(){
+        //动态添加渠道ID
+        $("#tag_ids_add").click(function(){
+
+            var data_id = $(".jhover").attr("data-id");
+            var data_key = $(".jhover").attr("data-key");
+
+            if(!data_id || !data_key) {
+                alertMsg.warn('添加数据出错');
+                return false;
+            }
+
+            var textinput = "<div class=\"unit\"><label><input type=\"checkbox\" name=\"TagId\" value=\"{id:'1', tag_name:'"+data_key+"', tag_id:'"+data_id+"'}\" checked/>"+data_key+"</label></div>";
+
+            $("#tag_ids_input").append(textinput);
+        });
+    });
+</script>

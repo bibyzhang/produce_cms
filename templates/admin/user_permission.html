@@ -1,0 +1,168 @@
+<div class="tabs">
+    <div class="pageContent">
+        <form method="post" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>&act=role_manage" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">
+            <input type="hidden" name="stage" value='yes'/>
+            <input type="hidden" name="role_id" value='<{$post_arr.role_id}>' />
+            <input type="hidden" name="user_id" value='<{$post_arr.user_id}>' />
+            <table class="list" width="100%"  layoutH="80">
+                <thead>
+                <tr>
+                    <th colspan="4">菜单名字</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <!--系统管理权限-->
+                <tr><td width="6%" rowspan="<{$post_arr.num_menu+1}>" style="background-color: #94c840; font-size: 20px; text-align: center;">系<br/>统<br/>管<br/>理<br/></td></tr>
+                <{foreach item=p from=$menuData name=menu}>
+                <tr>
+                    <td colspan="3">
+                        <{if $p.acstate==2}>
+                            √
+                        <{else}>
+                            <input name="mids[]" type="checkbox" value="<{$p.id}>" <{if $p.acstate==1}>checked<{/if}>><{/if}>
+                        <b><{$p.name}></b>
+                    </td>
+                </tr>
+                    <{foreach item=c from=$p.list}>
+                    <tr>
+                        <td></td>
+                        <td colspan="2">
+                            <{if $c.acstate==2}>√ <{else}><input cid="<{$c.id}>" name="mids[]" type="checkbox" value="<{$c.id}>" <{if $c.acstate==1}>checked<{/if}>><{/if}><{$c.name}>
+                            <span>(
+                                <a href="javascript:;" onclick="chkAll(<{$c.id}>,1);"><i>全选</i></a>
+                                <a href="javascript:;" onclick="chkAll(<{$c.id}>,2);"><i>反选</i></a>
+                            )</span>
+                        </td>
+                    </tr>
+                        <{foreach item=m from=$c.list}>
+                        <tr>
+                            <td width="6%"></td>
+                            <td width="8%"></td>
+                            <td width="16%">
+                                <{if $m.acstate==2}>
+                                    √
+                                <{else}>
+                                    <input cid="<{$c.id}>" name="mids[]" type="checkbox" value="<{$m.id}>" <{if $m.acstate==1}>checked<{/if}>>
+                                <{/if}>
+                                <{$m.name}>
+                            </td>
+                        </tr>
+                        <{/foreach}>
+                    <{/foreach}>
+                <{/foreach}>
+                <!--系统管理权限-->
+
+                <!--管理权限-->
+                <tr><td width="6%" rowspan="<{$post_arr.num_menu2+1}>" style="background-color: #00bfff; font-size: 20px; text-align: center;">游<br/>戏<br/>库<br/>管<br/>理</td></tr>
+                <{foreach item=p from=$groupMenuData name=menu}>
+                <tr>
+
+                    <td colspan="3">
+                        <{if $p.acstate==2}>
+                        √
+                        <{else}>
+                        <input name="mids[]" type="checkbox" value="<{$p.id}>" <{if $p.acstate==1}>checked<{/if}>><{/if}>
+                        <b><{$p.name}></b>
+                    </td>
+                </tr>
+                <{foreach item=c from=$p.list}>
+                <tr>
+                    <td></td>
+                    <td colspan="2">
+                        <{if $c.acstate==2}>√ <{else}><input cid="<{$c.id}>" name="mids[]" type="checkbox" value="<{$c.id}>" <{if $c.acstate==1}>checked<{/if}>><{/if}><{$c.name}>
+                            <span>(
+                                <a href="javascript:;" onclick="chkAll(<{$c.id}>,1);"><i>全选</i></a>
+                                <a href="javascript:;" onclick="chkAll(<{$c.id}>,2);"><i>反选</i></a>
+                            )</span>
+                    </td>
+                </tr>
+                <{foreach item=m from=$c.list}>
+                <tr>
+                    <td width="6%"></td>
+                    <td width="8%"></td>
+                    <td width="16%">
+                        <{if $m.acstate==2}>
+                        √
+                        <{else}>
+                        <input cid="<{$c.id}>" name="mids[]" type="checkbox" value="<{$m.id}>" <{if $m.acstate==1}>checked<{/if}>>
+                        <{/if}>
+                        <{$m.name}>
+                    </td>
+                </tr>
+                <{/foreach}>
+                <{/foreach}>
+                <{/foreach}>
+                <!--管理权限-->
+
+                <!--数据统计管理权限-->
+                <tr><td width="6%" rowspan="<{$post_arr.num_menu3+1}>" style="background-color: #94c840; font-size: 20px; text-align: center;">数<br/>据<br/>统<br/>计<br/>管<br/>理</td></tr>
+                <{foreach item=p from=$statisticsDataMenu name=menu}>
+                <tr>
+
+                    <td colspan="3">
+                        <{if $p.acstate==2}>
+                        √
+                        <{else}>
+                        <input name="mids[]" type="checkbox" value="<{$p.id}>" <{if $p.acstate==1}>checked<{/if}>><{/if}>
+                        <b><{$p.name}></b>
+                    </td>
+                </tr>
+                <{foreach item=c from=$p.list}>
+                <tr>
+                    <td></td>
+                    <td colspan="2">
+                        <{if $c.acstate==2}>√ <{else}><input cid="<{$c.id}>" name="mids[]" type="checkbox" value="<{$c.id}>" <{if $c.acstate==1}>checked<{/if}>><{/if}><{$c.name}>
+                            <span>(
+                                <a href="javascript:;" onclick="chkAll(<{$c.id}>,1);"><i>全选</i></a>
+                                <a href="javascript:;" onclick="chkAll(<{$c.id}>,2);"><i>反选</i></a>
+                            )</span>
+                    </td>
+                </tr>
+                <{foreach item=m from=$c.list}>
+                <tr>
+                    <td width="6%"></td>
+                    <td width="8%"></td>
+                    <td width="16%">
+                        <{if $m.acstate==2}>
+                        √
+                        <{else}>
+                        <input cid="<{$c.id}>" name="mids[]" type="checkbox" value="<{$m.id}>" <{if $m.acstate==1}>checked<{/if}>>
+                        <{/if}>
+                        <{$m.name}>
+                    </td>
+                </tr>
+                <{/foreach}>
+                <{/foreach}>
+                <{/foreach}>
+                <!--数据统计管理权限-->
+
+                </tbody>
+            </table>
+            <div class="formBar">
+                <ul>
+                    <li>
+                        <div class="buttonActive"><div class="buttonContent"><button type="submit">确定</button></div></div>
+                    </li>
+                    <li>
+                        <div class="button"><div class="buttonContent"><button type="Button" class="close">取消</button></div></div>
+                    </li>
+                </ul>
+            </div>
+
+        </form>
+    </div>
+</div>
+<script type="text/javascript" >
+    function chkAll(cid,type){
+        $("input[name='mids[]']").each(function(){
+            if($(this).attr("cid")==cid){
+                if(type==1){
+                    $(this).attr("checked",true);
+                } else {
+                    $(this).attr("checked",!this.checked);
+                }
+            }
+        })
+    }
+</script>

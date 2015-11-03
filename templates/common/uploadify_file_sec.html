@@ -1,0 +1,83 @@
+<style>
+    .cur{ display: none;}/*路径文本存储框*/
+    .img_explain{ margin-left: 110px;}/*上传说明*/
+
+    #<{$upload_button}>{ margin-left: 110px;}/*图片上传按钮*/
+    #<{$upload_img_preview}>{ margin-left: 110px;}/*图片预览*/
+    #<{$upload_text_id}>{ margin-left: 110px;}/*文本存储框*/
+    #<{$upload_img_bac}>{ margin-left: 110px;}/*图片回显*/
+</style>
+
+<div class="unit">
+    <label><{$upload_desc}>:</label>
+    <!--提交文本存储-->
+    <input name="<{$upload_text_name}>" class="cur" id="<{$upload_text_id}>" value="<{if !empty($gbdata[$upload_text_name])}><{$gbdata[$upload_text_name]}><{/if}>"/>
+    <!--提交文本存储-->
+
+    <!--上传图片预览-->
+    <div id="<{$upload_img_preview}>"></div>
+    <!--上传图片预览-->
+
+    <!--上传图片按钮-->
+    <input type="file" name="file_upload" id="<{$upload_button}>"/>
+    <!--上传图片按钮-->
+
+    <!--编辑图片回显-->
+    <{if !empty($gbdata[$upload_text_name])}>
+    <a target="_blank" href="<{$gbdata[$upload_text_name]}>" id="<{$upload_img_bac}>"><img src="<{$gbdata[$upload_text_name]}>" title="查看图片" style="border: #87cefa solid 2px;" /></a>
+    <{/if}>
+    <!--编辑图片回显-->
+
+    <!--上传说明-->
+    <span class="img_explain" style="color: #7a3b3f;"><{$upload_img_size}></span>
+    <!--上传说明-->
+</div>
+
+<script>
+    $(document).ready(function(){
+        var ajaxbg = $("#background,#progressBar");/*图片上传过程遮罩层*/
+        $(function() {
+            $('#<{$upload_button}>').uploadify({
+                'formData' : {
+                    'user_auth' : '<{$user_auth}>'
+                },
+                'swf'      : 'statics/uploadify/scripts/uploadify.swf',
+                'uploader' : 'index.php?m=common&c=common_action&a=uploadify_image_up&img_type=<{$img_type}>&img_category=<{$img_category}>&upload_id=<{$upload_id}>',
+                'method'   : 'post',
+                'height'   : 30,
+                'width'    : 120,
+                'fileObjName' : 'img_upload',
+                'buttonText' : '<{if empty($gbdata[$upload_text_name])}>选择图片<{else}>修改图片<{/if}>',
+                'folder': 'uploads',
+                'auto'     : true,
+
+                'onUploadStart' : function(file) {
+                    ajaxbg.show();
+                },
+                'onUploadComplete' : function(file) {
+                    ajaxbg.hide();
+                },
+                'onUploadSuccess' : function(file, data, response) {console.log(data);
+                    var imgpath = JSON.parse(data);
+                    if(imgpath.err){
+                        alertMsg.error(imgpath.msg);
+                    }else{
+                        //添加图片返回信息
+                        $("#<{$upload_img_preview}>").html('<img src="'+imgpath.prepath+imgpath.img_url+'" width="'+imgpath.width+'" height="'+imgpath.height+'" style="border: #dcdcdc solid 1px;">');
+                        $("#<{$upload_text_id}>").val(imgpath.img_url);
+                        //编辑图片 隐藏该回显框
+                        var state2 = $("#<{$upload_img_bac}>").hasClass('cur');
+                        if(!state2)
+                            $("#<{$upload_img_bac}>").addClass('cur');
+                    }
+                },
+                'onFallback' : function() {
+                    alertMsg.warn('您的浏览器版本太低不支持文件上传,请更换浏览器！');
+                },
+                'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+                    alertMsg.error(file.name + ' 上传失败,详细信息: ' + errorString);
+                }
+            });
+        });
+    });
+</script>

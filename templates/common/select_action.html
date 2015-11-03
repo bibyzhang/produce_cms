@@ -1,0 +1,9 @@
+<div class="unit">
+    <label><{$select_decs}>:</label>
+    <select class="sfilter" name="<{$select_name}>">
+        <{foreach from=$select_data item=v name=foo}>
+        <option label="<{$v[$desc]}>" value="<{$v[$val]}>" <{if !empty($gbdata[$select_name]) && $gbdata[$select_name]==$v[$val]}>selected="selected"<{/if}>><{$v[$desc]}></option>
+        <{/foreach}>
+    </select>
+    <{$custom}>
+</div>

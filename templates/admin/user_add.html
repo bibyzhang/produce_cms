@@ -1,0 +1,26 @@
+<div class="pageContent">
+    <form method="post" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}><{if $smarty.get.opt=='user_edit'}>&opt=user_edit<{/if}>" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);">
+        <input type="hidden" name="user_id" value="<{$gbdata.user_id}>"/>
+        <div class="pageFormContent nowrap" layoutH="60">
+            <!--登录名--INPUT-->
+            <{include file="common/input_action.html" input_decs='登录名' input_name='user_name' size='30' custom='class="required"'}>
+            <{if $smarty.get.opt!='user_edit'}>
+            <div class="unit">
+                <label>登录密码：</label>
+                <input type="password" class="required" name="uPass" size="30" value=""/>
+            </div>
+            <{/if}>
+            <!--E-mail--INPUT-->
+            <{include file="common/input_action.html" input_decs='E-mail' input_name='email' size='30' custom='class="email"'}>
+            <!--权限组--SELECT-->
+            <{include file="common/select_action.html" select_decs='权限组' select_name='role_id' select_data=$pmData val='role_id' desc='rolename'}>
+        </div>
+
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">确定</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="Button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>

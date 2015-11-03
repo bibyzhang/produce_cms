@@ -1,0 +1,24 @@
+<div class="unit">
+    <label>礼包图标:</label>
+    <!--提交文本存储-->
+    <input name="<{$imgup_data.name}>" class="cur" id="img_url_<{$smarty.get.a}>_<{$smarty.get.opt}>" value="<{if !empty($gbdata[$imgup_data.name])}><{$gbdata[$imgup_data.name]}><{/if}>"/>
+    <!--提交文本存储-->
+
+    <!--上传图片预览-->
+    <div id="imgPreview_<{$smarty.get.a}>_<{$smarty.get.opt}>"></div>
+    <!--上传图片预览-->
+
+    <!--上传图片按钮-->
+    <input type="file" name="file_upload" id="image_upload_<{$smarty.get.a}>_<{$smarty.get.opt}>"/>
+    <!--上传图片按钮-->
+
+    <!--编辑图片回显-->
+    <{if !empty($gbdata.iconurl)}>
+    <a target="_blank" href="<{$gbdata.iconurl}>" id="iconurl_<{$smarty.get.a}>_<{$smarty.get.opt}>"><img src="<{$gbdata.iconurl}>" width="116" height="116" title="查看图片" style="border: #87cefa solid 2px;" /></a>
+    <{/if}>
+    <!--编辑图片回显-->
+
+    <!--上传说明-->
+    <span class="img_explain" style="color: #7a3b3f;">图片尺寸:116[长]*116[宽]</span>
+    <!--上传说明-->
+</div>

@@ -1,0 +1,10 @@
+{
+    "require": {
+        "qiniu/php-sdk": "^7.0",
+        "rodneyrehm/plist": "^2.0",
+        "twbs/bootstrap": "^3.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "5.0.*"
+    }
+}

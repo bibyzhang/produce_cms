@@ -1,0 +1,53 @@
+/* CSS Document */
+*{ margin:0; padding:0;}
+BODY {
+	BACKGROUND:url(../../Images/login.png) no-repeat center top; FONT-SIZE: 14px
+}	
+img{ border:0;}
+.container {
+	POSITION: relative; MARGIN: 0px auto; WIDTH: 540px; HEIGHT: 500px
+}
+A {
+	COLOR: #000; TEXT-DECORATION: none
+}
+A:hover {
+	COLOR: #ff0000; TEXT-DECORATION: underline
+}
+.login {
+	Z-INDEX: 1000; POSITION: absolute; WIDTH: 580px; HEIGHT: 437px; TOP: 0px; LEFT: -70px
+}
+.login_error {
+	Z-INDEX: 1001;
+	POSITION: absolute;
+	TOP: 286px;
+	LEFT: 210px
+}
+.login_txt {
+	Z-INDEX: 1001;
+	POSITION: absolute;
+	TOP: 312px;
+	LEFT: 215px
+}
+.login_txt input{
+	width:205px;
+	height:32px;
+	border:none;
+	background:none;
+	vertical-align:middle;
+}
+.login_txt td{
+	padding-bottom: 18px;
+}
+.login_sub {
+	Z-INDEX: 1001;
+	POSITION: absolute;
+	TOP: 518px;
+	LEFT: 186px
+}
+.login_sub .sub{
+	cursor:pointer;
+	background:none;
+	border:none;
+	width:168px;
+	height:40px;
+}

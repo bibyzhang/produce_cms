@@ -1,0 +1,68 @@
+<form id="pagerForm" method="post" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>">
+    <input type="hidden" name="pageNum" value="1"/>
+    <input type="hidden" name="numPerPage" value="<{$param.numPerPage}>"/>
+</form>
+
+<div class="pageHeader">
+    <form onsubmit="return navTabSearch(this);" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>" method="post">
+        <div class="searchBar">
+
+            <table class="searchContent">
+                <tr>
+                    <!-- 普通搜索input表单 -->
+                    <{include file="common/input_common.html"}>
+                    <!-- 日期表单 -->
+                    <td>
+                    发布日期:
+                    <{foreach from=$formName item="v" key="foo"}>
+                        <{include file="common/date_input.html"}>
+                        <{if $foo eq 0 }>-<{/if}>
+                    <{/foreach}>
+                    </td>
+                </tr>
+            </table>
+
+            <!-- 搜索按钮 -->
+            <{include file="common/search_button.html"}>
+        </div>
+    </form>
+</div>
+
+<div class="pageContent">
+
+    <!-- 公共表单操作 -->
+    <{include file="common/form_operate.html"}>
+
+    <table class="table" width="100%" layoutH="138">
+        <thead>
+        <tr>
+            <th width="40"><input type="checkbox" group="key_sids" class="checkboxCtrl"></th>
+
+            <th>攻略标题</th>
+            <th>发布日期</th>
+            <th>作者</th>
+            <th>操作</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <{foreach from=$data item=h name=foo}>
+        <tr>
+            <td><input name="key_sids" value="<{$v.id}>" type="checkbox"></td>
+            <td style="text-align:left"><{$h.title}></td>
+            <td style="text-align:left"><{$h.create_time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+            <td style="text-align:left"><{$h.author}></td>
+            <td style="text-align:left">
+                <a title="修改游戏攻略[<{$h.title}>]" class="btnEdit" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=walkthrough_edit&id=<{$h.id}>" target="dialog" max="true" height="420" >修改游戏攻略[<{$h.title}>]</a>
+                <a title="删除游戏攻略:<{$h.title}>" class="btnDel" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=delete_one&id=<{$h.id}>" target="ajaxToDo">删除游戏攻略[<{$h.title}>]</a>
+            </td>
+        </tr>
+        <{/foreach}>
+        </tbody>
+    </table>
+
+    <!-- 分页底栏 -->
+    <{include file="common/paging_footer.html"}>
+
+</div>

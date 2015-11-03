@@ -1,0 +1,104 @@
+<{if $smarty.get.stage=='unbindSn'}>
+<div class="pageContent">
+    <form method="post" action="/?action=sys&opt=useradd&navTabId=page171" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone)">
+        <input type="hidden" name="stage" value="unbindSn"/>
+        <div class="pageFormContent" layoutH="58">
+            <div class="unit">
+                <label>密保序列号：</label>
+                <input type="text" name="mb_isbn" />
+            </div>
+            <div class="divider"></div>
+            <div class="unit">
+                <label>说明：</label>
+                <span>解绑该序列号，同时清空本应用下拥有该序列号的账号的密保记录。慎用！</span>
+            </div>
+        </div>
+        <div class="formBar">
+            <ul>
+                <li><div class="buttonActive"><div class="buttonContent"><button type="submit">提交</button></div></div></li>
+                <li><div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div></li>
+            </ul>
+        </div>
+    </form>
+</div>
+
+<{else}>
+
+<form id="pagerForm" method="post" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>">
+    <input type="hidden" name="pageNum" value="1" />
+    <input type="hidden" name="numPerPage" value="<{$searchArr.numPerPage}>" />
+</form>
+<div class="pageHeader">
+    <form onSubmit="return navTabSearch(this);" rel="pagerForm" action="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=<{$smarty.get.a}>" method="post">
+        <input type="hidden" name="act" value="search"/>
+        <div class="searchBar">
+            <table class="searchContent">
+                <tr>
+                    <!--帐号--INPUT-->
+                    <{include file="common/list_input_action.html" input_decs='帐号' input_name='user_name' size='' custom=''}>
+                    <!--权限组--SELECT-->
+                    <{include file="common/list_select_action.html" select_decs='权限组' select_name='role_id' select_data=$pmData val='role_id' desc='rolename'}>
+                    <!--账号状态--SELECT-->
+                    <{include file="common/list_select_action.html" select_decs='账号状态' select_name='status' select_data=$selectActionArr['status'] val='val' desc='desc'}>
+                    <td><div class="buttonActive"><div class="buttonContent"><button type="submit">查询</button></div></div></td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
+
+<div class="pageContent">
+    <div class="panelBar">
+        <ul class="toolBar">
+            <li><a class="add" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=user_add" target="navTab" rel="page11" title="增加系统帐号"><span>增加系统帐号</span></a></li>
+            <li><a title="批量重置密码" target="selectedTodo" targetType="" rel="uid[]" href="/?action=sys&opt=useradd&stage=resetPass" class="edit"><span>批量重置密码</span></a></li>
+            <li><a class="delete" href="/?action=sys&opt=useradd&stage=unbindUser&uid={sid_user}" target="ajaxToDo" title="解绑该账号密保？"  ><span>解绑指定账号密保</span></a></li>
+            <li><a class="delete" href="/?action=sys&opt=userlist&stage=unbindSn" target="dialog" mask="true"><span>解绑密保</span></a></li>
+        </ul>
+    </div>
+
+    <table class="table"  layoutH="135" width="100%">
+        <thead align="center">
+        <tr>
+            <th width="2%"><input type="checkbox" group="uid[]" class="checkboxCtrl"></th>
+            <th width="10%">帐号</th>
+            <th width="10%">邮箱</th>
+            <th width="10%">权限组</th>
+            <th width="5%">登录次数</th>
+            <th width="13%">登录时间</th>
+            <th width="10%">登录IP</th>
+            <th width="13%">创建时间</th>
+            <th width="10%">状态</th>
+            <th align="center">操作</th>
+        </tr>
+        </thead>
+        <tbody align="center">
+        <{foreach item=u from=$userData name=foo}>
+        <tr <{if $smarty.foreach.foo.index %2 ==0}> bgcolor="#EAFDFF"<{/if}> target="sid_user" rel="<{$u.uId}>&mb_isbn=<{$u.mb_isbn}>&navTabId=page171">
+            <td height="25"><input name="uid[]" value="<{$u.uId}>" type="checkbox"></td>
+            <td height="25"><{$u.user_name}></td>
+            <td><{$u.email|default:'--'}></td>
+            <td><{$u.rolename}></td>
+            <td><{$u.login_times}></td>
+            <td><{$u.lastlogin_time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+            <td><{$u.lastlogin_ip|default:'--'}></td>
+            <td><{$u.create_time|date_format:'%Y-%m-%d %H:%M:%S'}></td>
+            <td><{if $u.status==1}><span style="color: #008a00;">开启</span><{else}><span style="color: #8b0000;">禁用</span><{/if}></td>
+            <td>
+                <{if $u.status==1}>
+                <a title="分配[<{$u.user_name}>]用户权限" class="btnAssign" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=user_permission&user_id=<{$u.user_id}>" target="dialog" max="true">分配[<{$u.user_name}>]用户权限</a>
+                <a title="修改[<{$u.user_name}>]资料" class="btnEdit" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=user_operate&opt=user_edit&user_id=<{$u.user_id}>" target="dialog" height="420" >修改[<{$u.truename}>]资料</a>
+                <a title="禁用账号:<{$u.user_name}>" class="btnDel" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=user_operate&opt=user_delete&user_id=<{$u.user_id}>" target="ajaxToDo">删除用户</a>
+                <{else}>
+                <a title="恢复账号:<{$u.user_name}>" class="btnSelect" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=user_operate&opt=user_open&user_id=<{$u.user_id}>" target="ajaxToDo" >恢复账号</a>
+                <a title="永久删除账号:<{$u.user_name}>" class="btnDel" href="index.php?m=<{$smarty.get.m}>&c=<{$smarty.get.c}>&a=user_operate&opt=user_drop&user_id=<{$u.user_id}>" target="ajaxToDo">永久删除</a>
+                <{/if}>
+            </td>
+        </tr>
+        <{/foreach}>
+        </tbody>
+    </table>
+    <!-- 分页底栏 -->
+    <{include file="common/paging_footer.html"}>
+</div>
+<{/if}>

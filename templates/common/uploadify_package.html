@@ -1,0 +1,58 @@
+<style>
+    .cur{ display: none;}
+    #<{$upload_button}>{ margin-left: 110px;}
+</style>
+<div class="unit">
+    <label><{$upload_desc}>:</label>
+    <input size="50" name="<{$url_name}>" class="<{$url_class}>" value="<{$gbdata[$url_name]}>"/><br />
+    <label>应用大小:</label>
+    <input size="15" name="<{$size_name}>" class="<{$size_class}>" value="<{$gbdata[$size_name]}>"/><span style="color: #7a3b3f;">可以直接上传游戏包文件,也可以直接填写游戏包url地址&amp;&amp;数据包大小{手动填写格式:xxxMB}</span>
+    <!--上传按钮-->
+    <input type="file" name="file_upload" id="<{$upload_button}>"/>
+    <!--上传按钮-->
+</div>
+<script>
+$(document).ready(function(){
+    var ajaxbg = $("#background,#progressBar");
+    $(function() {
+        $('#<{$upload_button}>').uploadify({
+            'formData' : {
+                'user_auth' : '<{$user_auth}>'
+            },
+            'swf'      : 'statics/uploadify/scripts/uploadify.swf',
+            'uploader' : '<{$IMAGE_PATH}>index.php?m=common&c=common_action&a=game_package_upload&package_category=<{$package_category}>',
+            'method'   : 'post',
+            'height'   : 30,
+            'width'    : 120,
+            'fileObjName' : 'game_package_upload',
+            'buttonText' : '<{if empty($gbdata[$url_name])}>上传数据包<{else}>修改数据包<{/if}>',
+            'folder': 'uploads',
+            'auto'     : true,
+			'multi'	   : false,
+			'fileTypeExts' :'*.apk;*.ipa',
+			
+            'onUploadStart' : function(file) {
+                ajaxbg.show();
+            },
+            'onUploadComplete' : function(file) {
+                ajaxbg.hide();
+            },
+            'onUploadSuccess' : function(file, data, response) {
+                var imgpath = JSON.parse(data);
+                if(imgpath.err){
+                    alertMsg.error(imgpath.msg);
+                }else{
+                    $(".<{$url_class}>").val(imgpath.path);
+                    $(".<{$size_class}>").val(imgpath.size);
+                }
+            },
+            'onFallback' : function() {
+                alertMsg.warn('您的浏览器版本太低不支持文件上传,请更换浏览器！');
+            },
+            'onUploadError' : function(file, errorCode, errorMsg, errorString) {
+                alertMsg.error(file.name + ' 上传失败,详细信息: ' + errorString);
+            }
+        });
+    });
+});
+</script>

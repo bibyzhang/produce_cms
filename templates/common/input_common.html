@@ -1,0 +1,5 @@
+<{foreach from=$input_data item=v name=foo}>
+    <td>
+        <{$v.title}>:<input type="text" name="<{$v.name}>" value="<{if !empty($post_arr[$v.name])}><{$post_arr[$v.name]}><{/if}>"/>
+    </td>
+<{/foreach}>

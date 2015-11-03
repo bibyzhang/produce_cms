@@ -1,0 +1,47 @@
+<div class="pageContent">
+	
+	<form action="/index.php?m=admin&c=system&a=editmenu&submit=doedit" method="post" accept-charset="utf-8" class="pageForm required-validate" onsubmit="return validateCallback(this,dialogAjaxDone);" >
+		<input type="hidden" name="id" value="<{$menu_one.id}>" />
+		<div class="pageFormContent" layoutH="58" >
+			<div class="unit" >
+				<label>pageID：</label>
+				#page<{$menu_one.id}>
+			</div>
+			<div class="unit" >
+				<label>菜单类型：</label>
+				<{$menu_one.type}>
+			</div>	
+			<div class="unit" >
+				<label>菜单名称：</label>
+				<input type="text" name="name" value="<{$menu_one.name}>" class="required" />
+			</div>	
+			<div class="unit" >
+				<label>排序：</label>
+				<input type="text" name="order_id" value="<{$menu_one.order_id}>" class="required digits" />
+			</div>	
+			<div class="unit" >
+				<label>是否显示：</label>
+				<label><input type="radio" name="state" value="1" <{if 1==$menu_one.state}>checked="checked"<{/if}> />正常</label>
+				<label><input type="radio" name="state" value="2" <{if 2==$menu_one.state}>checked="checked"<{/if}> />隐藏</label>
+			</div>	
+
+		</div>
+
+		<div class="formBar">
+			<ul>
+                    <li>
+                          <div class="buttonActive"><div class="buttonContent"><button type="submit">确定</button></div></div>
+                    </li>
+                    <li>
+                          <div class="button"><div class="buttonContent"><button type="Button" class="close">取消</button></div></div>
+                    </li>
+              </ul>
+		</div>
+
+
+
+	</form>
+
+
+
+</div>

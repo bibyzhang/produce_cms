@@ -1,0 +1,8 @@
+<td><{$select_decs}>:</td>
+<td>
+    <select class="combox" name="<{$select_name}>" onchange="navTabSearch(<{$form_name}>)">
+        <{foreach from=$select_data item=v key=key}>
+        <option label="<{$v[$desc]}>" value="<{$v[$val]}>" <{if $post_arr[$select_name]==$v[$val]}>selected="selected"<{/if}>><{$v[$desc]}></option>
+        <{/foreach}>
+    </select>
+</td>

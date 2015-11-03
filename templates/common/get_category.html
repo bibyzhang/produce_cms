@@ -1,0 +1,44 @@
+<ul class="tree treeFolder treeCheck expand" oncheck="kkk" layoutH="58">
+    <{foreach from=$list item=vo}>
+    <{if $vo.id==$GET.id}><{continue}><!--上级不能是它本身及其孩子--><{/if}>
+    <li>
+        <!--<a tname="orgId" tvalue="{id:'<{$vo.id}>', orgName:'<{$vo.title}>'}"><{$vo.title}></a>-->
+        <a tname="orgId" tvalue="<{$vo.id}>"><{$vo.title}></a>
+        <input type="checkbox" id="checkbox_<{$vo.id}>" name="orgId" value=""/>
+        <!-- style="display:none;" -->
+        <{if !empty($vo._child)}>
+        <ul>
+            <{foreach from=$vo._child item=child}>
+            <{if $child.id==$GET.id}><{continue}><!--上级不能是它本身及其孩子--><{/if}>
+            <!--<li><a name="orgId" value="{id:'<{$child.id}>', orgName:'<{$child.title}>'}"><{$child.title}></a>--><!--二级目录-->
+            <!--<li><a tname="orgId" tvalue="{id:'<{$child.id}>', orgName:'<{$child.title}>'}"><{$child.title}></a>--><!--二级目录-->
+            <li><a tname="orgId" tvalue="<{$child.id}>"><{$child.title}></a><!--二级目录-->
+                <input type="checkbox" id="checkbox_<{$child.id}>" name="orgId" value=""/>
+                <{if !empty($child._child)}>
+                <ul>
+                    <{foreach from=$child._child item=childs}>
+                    <{if $childs.id==$GET.id}><{continue}><!--上级不能是它本身及其孩子--><{/if}>
+                    <!--<li><a tname="orgId" tvalue="{id:'<{$childs.id}>', orgName:'<{$childs.title}>'}"><{$childs.title}></a>--><!--三级目录-->
+                    <li><a tname="orgId" tvalue="<{$childs.id}>"><{$childs.title}></a><!--三级目录-->
+                        <input type="checkbox" id="checkbox_<{$childs.id}>" name="orgId" value=""/>
+                        <{if !empty($childs._child)}>
+                        <ul>
+                            <{foreach from=$childs._child item=childss}>
+                            <{if $childss.id==$GET.id}><{continue}><!--上级不能是它本身及其孩子--><{/if}>
+                            <!--<li><a tname="orgId" tvalue="{id:'<{$childss.id}>', orgName:'<{$childss.title}>'}"><{$childss.title}></a></li>--><!--四级目录-->
+                            <li><a tname="orgId" tvalue="<{$childss.id}>"><{$childss.title}></a></li><!--四级目录-->
+                            <input type="checkbox" id="checkbox_<{$childss.id}>" name="orgId" value=""/>
+                            <{/foreach}>
+                        </ul>
+                    </li>
+                    <{/if}>
+                    <{/foreach}>
+                </ul>
+            </li>
+            <{/if}>
+            <{/foreach}>
+        </ul>
+    </li>
+    <{/if}>
+    <{/foreach}>
+</ul>

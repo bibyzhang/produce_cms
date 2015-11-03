@@ -1,0 +1,14 @@
+*{margin:0;padding:0;}
+body{background:url(../images/login_bg.gif) #E2EEFE center top repeat-x;font-size:12px;font-family:arial;color:#222;}
+img{border:0;}
+.container{position:relative;width:960px;height:600px;background:url(../images/login_form.jpg);margin:0 auto;}
+form{position:absolute;width:438px;height:274px;top:146px;left:260px;}
+.uname,.pwd,.verify{font-size:14px;font-weight:bold;border:none;height:20px;line-height:20px;background:none;border:0;border:none;}
+.uname{padding-left:26px;width:105px;position:absolute;top:125px;left:212px;}
+.pwd{padding-left:26px;width:105px;position:absolute;top:155px;left:212px;}
+.verify{padding:0 3px;width:65px;position:absolute;top:184px;left:212px;}
+.remember{position:absolute;top:226px;left:264px;}
+.submit{position:absolute;top:222px;left:176px;outline:0;}
+#verify_img{cursor:pointer;position:absolute;top:182px;left:292px;}
+.copy {position:absolute;top:450px;left:280px;width:400px;text-align:center;}
+.copy a{text-decoration:none;color:#222;}
