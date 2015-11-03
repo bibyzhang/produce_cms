@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>数据库管理后台</title>
+<link href="/cframe/themes/default/style.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="/cframe/themes/css/core.css" rel="stylesheet" type="text/css" media="screen"/>
+<link href="/cframe/themes/css/print.css" rel="stylesheet" type="text/css" media="print"/>
+<link href="/cframe/uploadify/css/uploadify.css" rel="stylesheet" type="text/css" media="screen"/>
+<!--[if IE]>
+<link href="themes/css/ieHack.css" rel="stylesheet" type="text/css" media="screen"/>
+<![endif]-->
+<script src="/cframe/js/speedup.js" type="text/javascript"></script>
+<script src="/cframe/js/jquery-1.7.2.js" type="text/javascript"></script>
+<script src="/cframe/js/jquery.cookie.js" type="text/javascript"></script>
+<script src="/cframe/js/jquery.validate.js" type="text/javascript"></script>
+<script src="/cframe/js/jquery.bgiframe.js" type="text/javascript"></script>
+<script src="/cframe/xheditor/xheditor-1.1.14-zh-cn.min.js" type="text/javascript"></script>
+<script src="/cframe/uploadify/scripts/jquery.uploadify.js" type="text/javascript"></script>
+<script src="/cframe/js/ajaxUpload.js" type="text/javascript"></script>
+<script src="/cframe/js/function.js" type="text/javascript"></script>
+
+<!-- svg图表  supports Firefox 3.0+, Safari 3.0+, Chrome 5.0+, Opera 9.5+ and Internet Explorer 6.0+ -->
+<script type="text/javascript" src="/cframe/chart/raphael.js"></script>
+<script type="text/javascript" src="/cframe/chart/g.raphael.js"></script>
+<script type="text/javascript" src="/cframe/chart/g.bar.js"></script>
+<script type="text/javascript" src="/cframe/chart/g.line.js"></script>
+<script type="text/javascript" src="/cframe/chart/g.pie.js"></script>
+<script type="text/javascript" src="/cframe/chart/g.dot.js"></script>
+<script language="javascript" type="text/javascript" src="/cframe/js/highcharts.js"></script>
+<script language="javascript" type="text/javascript" src="/cframe/js/exporting.js"></script>
+
+<script language="javascript" type="text/javascript" src="/cframe/js/amcharts.js"></script>
+
+<script src="/cframe/js/dwz.core.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.util.date.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.validate.method.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.regional.zh.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.barDrag.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.drag.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.tree.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.accordion.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.ui.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.theme.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.switchEnv.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.alertMsg.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.contextmenu.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.navTab.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.tab.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.resize.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.dialog.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.dialogDrag.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.sortDrag.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.cssTable.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.stable.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.taskBar.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.ajax.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.pagination.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.database.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.datepicker.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.effects.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.panel.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.checkbox.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.history.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.combox.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.print.js" type="text/javascript"></script>
+<script src="/cframe/js/dwz.regional.zh.js" type="text/javascript"></script>
+<script src="/cframe/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+function dialogAjaxMenu(json){
+    dialogAjaxDone(json);
+    if (json.statusCode == DWZ.statusCode.ok){
+        $("#sidebar").loadUrl("/?action=sys&opt=leftMenu");
+    }
+}
+function navTabAjaxMenu(json){
+    navTabAjaxDone(json);
+    if (json.statusCode == DWZ.statusCode.ok){
+        $("#sidebar").loadUrl("/?action=sys&opt=leftMenu");
+    }
+}
+$(function(){
+    DWZ.init("/cframe/config/cframe.xml", {
+        loginUrl:"index.php?action=sys&opt=ajaxLogin", loginTitle:"您的登录信息已过期，请重新登录",    // 弹出对话框登录
+        statusCode:{ok:200, error:300, timeout:301},
+        debug:false,
+        callback:function(){
+            initEnv();
+            $("#themeList").theme({themeBase:"/cframe/themes"});
+            //$("#sidebar .toggleCollapse div").trigger("click");//【如果进入主界面需要隐藏左菜单栏，请开启该操作】
+        }
+    });
+
+});
+
+</script>
+</head>
+<body scroll="no">
+<!--[if lt IE 8]>
+<div align="center" style="background:#fff"><font color="red"><b>您的浏览器版本太低了,影响后台正常使用和涉及安全问题，请换用 <a href="http://info.msn.com.cn/ie9/" target="_blank">IE9</a>、<a href="https://www.google.com/intl/zh-CN/chrome/browser/" target="_blank">谷歌</a>、<a href="http://www.firefox.com/" target="_blank">火狐</a></b></font></div>
+<![endif]-->
+    <div id="layout">
+ <!-- 头部 -->
+        <div id="header">
+            <div class="headerNav">
+                <a class="logo" href="/"><span>数据库管理后台</span></a>
+                <!--头部导航栏-->
+            <div id="navMenu">
+                <ul>
+                </ul>
+            </div>
+<!--头部导航栏END-->
+                <ul class="nav">
+                    <li><a href="javascript:void(0)"><{$admin_name}>，<{$uData['deptname']}></a></li>
+                    <li id="newsmsg" style="display:none"><a href="/?action=pay&opt=getMsg" target="dialog" rel="msg_dialog" style="background:#F56200;color:white!important;" title="消息通知">news</a></li>
+                    <li><a href="/?action=sys&opt=editUser" target="dialog" width="620" height="400">修改资料/密码</a></li>
+                    <li><a href="/?action=sys&opt=logout">退出</a></li>
+                </ul>
+            </div>
+        </div>
+ <!--头部 END-->
+<!--左侧管理菜单-->
+        <div id="leftside">
+                <{include file="sys/leftMenu.html"}>
+        </div>
+<!--左侧管理菜单END-->
+<!--主界面-->
+        <div id="container">
+            <div id="navTab" class="tabsPage">
+                <div class="tabsPageHeader">
+                    <div class="tabsPageHeaderContent ">
+                        <ul class="navTab-tab">
+                            <li tabid="main" class="main"><a href="javascript:;"><span><span class="home_icon">我的主页</span></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="tabsLeft">left</div>
+                    <div class="tabsRight">right</div>
+                    <div class="tabsMore">more</div>
+                </div>
+                <ul class="tabsMoreList">
+                    <li><a href="javascript:;">我的主页</a></li>
+                </ul>
+                <div class="navTab-panel tabsPageContent layoutBox">
+                    <{include file="sys/index.html"}>
+                </div>
+            </div>
+        </div>
+<!--主界面END-->
+    </div>
+<!--footer-->
+    <div id="footer"></div>
+<!--footer END-->
+    <script type="text/javascript" >
+        var note_arr=Array(
+                           '只要路是对的，就不怕遥远。',
+                           '回避现实的人，未来将更不理想。',
+                           '在温室中想象南极，谁都可以做到。',
+                           '网络事业创造了富裕，又延续了平等。',
+                           '任何的限制，都是从自己的内心开始的。',
+                           '人生伟业的建立，不在能知，乃在能行。',
+                           '世上没有绝望的处境，只有对处境绝望的人。',
+                           '压力源于自身的不足，个性基于强大的实力。',
+                           '顾客后还有顾客，服务的开始才是销售的开始。',
+                           '在生存与死亡的游戏中，相信自己，相信伙伴。',
+                           '世界上那些最容易的事情中，拖延时间最不费力。',
+                           '用心，努力，付出，您得到的将比想要的还要多。',
+                           '拥有梦想只是一种智力，实现梦想才是一种能力。',
+                           '积极思考造成积极人生，消极思考造成消极人生。',
+                           '好咖啡要和朋友一起品尝，好机会也要和朋友一起分享。',
+                           '等候环境对他的事业完全有利才动手的人，将永远不会成功。',
+                           '贫穷是不需要计划的，致富才需要一个周密的计划——并去实践它。',
+                           '成功需要成本，时间也是一种成本，对时间的珍惜就是对成本的节约。',
+                           '没有人富有得可以不要别人的帮助，也没有人穷得不能在某方面给他人帮助。',
+                           '世上并没有用来鼓励工作努力的赏赐，所有的赏赐都只是被用来奖励工作成果的。',
+                           '积极的人在每一次忧患中都看到一个机会，而消极的人则在每个机会都看到某种忧患。',
+                           '只有一条路不能选择——那就是放弃的路；只有一条路不能拒绝——那就是成长的路。',
+                           '一个能从别人的观念来看事情，能了解别人心灵活动的人，永远不必为自己的前途担心。',
+                           '众人反向而行是很需要勇气的,这世界上从不曾有哪个人是只靠「从众」而成功的。',
+                           '做自己喜欢做的事的人,我并不是在「上班」,而是每天迫不及待睁开眼睛,赶快去享受工作的乐趣。',
+                           '这个世界上唯一不变的是"变化"'
+                           );
+        function showNote(){
+            var n=Math.floor(Math.random()*26);
+            var note=note_arr[n];
+            $('#footer').html(note);
+
+        }
+        showNote();
+        window.setInterval("showNote()",10000);
+
+        var count = 0;
+        function resetPass(){
+            if(!document.getElementById('uPass') || count<1){
+                $.pdialog.open('/?action=sys&opt=editUser&do=upwd&uPass=<{$smarty.get.uPass}>', 'resetPass', '修改密码',{width:620,height:400,mask:true,mixable:true,minable:true,resizable:true,drawable:true,fresh:true,close:"function", param:"{msg:'message'}"});
+                count++;
+            }
+        }
+        if($.cookie('upwd')==1){
+            //setTimeout(resetPass,1500);
+            //setInterval(resetPass,30000);//30秒弹一次
+        }
+
+		function showMsg(){
+			$.getJSON("/?action=pay&opt=getMsg&type=1", function(data){
+				if(data.message==1){
+					$("#newsmsg").show();
+				}else{
+					$("#newsmsg").hide();
+				}
+			});
+		}
+		<{if $smarty.session.uName=='韦超锦'}>
+		//showMsg();
+		setTimeout(showMsg,1000*60*10);
+		<{/if}>
+        </script>
+</body>
+</html>

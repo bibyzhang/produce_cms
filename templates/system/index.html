@@ -1,0 +1,17 @@
+<div class="page unitBox">
+    <div class="pageFormContent" layoutH="30">
+        <div class="borFrame width1">
+            <table>
+                <tr><td>用户名：</td><td><{$adminUserData.user_name}></td></tr>
+                <tr><td>部门：</td><td><{$adminUserData.rolename}></td></tr>
+                <tr><td>登录次数：</td><td><{$adminUserData.login_times}></td></tr>
+                <tr><td>上次登录时间：</td><td><{$adminUserData['lastlogin_time']|date_format:'%Y-%m-%d %H:%M:%S'}></td></tr>
+                <tr><td>上次登录IP：</td><td><{$adminUserData.lastlogin_ip}></td></tr>
+            </table>
+        </div>
+        <div>
+            <div style="float:left;padding-right:50px;">
+            </div>
+        </div>
+    </div>
+</div>
