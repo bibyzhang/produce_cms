@@ -1,9 +1,12 @@
 <?php
 // +----------------------------------------------------------------------
-// |
+// | @name index.php
 // +----------------------------------------------------------------------
-// | 管理后台入口
+// | @desc系统入口
 // +----------------------------------------------------------------------
+// | @author bibyzhang90@gmail.com
+// +----------------------------------------------------------------------
+
 date_default_timezone_set('Asia/Chongqing');
 
 //系统根目录
@@ -16,6 +19,14 @@ if(!empty($_POST['user_auth']) && $_POST['user_auth']){//兼容uploaduify图片�
     session_start();
 }
 
+//自动加载 modules
+function autoload_modules($class) {
+    $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
+    include BASE_PATH . $class . '.php';
+}
+
+spl_autoload_register('autoload_modules');
+
 include BASE_PATH.'/common/base.php';
 
 $getData = checkData($_GET);
@@ -26,13 +37,12 @@ $action = empty($getData['a'])? 'index' : strtolower($getData['a']); //方法
 
 $app_id = strchr($module,'admin') ? 1 : 2;//区分操作所属应用
 
-if($module){
+if(!empty($module)){
     $controlFile = MODULE_PATH . $module . DIRECTORY_SEPARATOR . $control . '.php';
     if( !file_exists($controlFile) ){
-        echo $module . DIRECTORY_SEPARATOR . $control . '.php'.'类文件不存在'; exit();
+        throw new Exception($module . DIRECTORY_SEPARATOR . $control . '.php'.'类文件不存在');
     }
 
-    include($controlFile);
     $name = '\modules\\' . $module . '\\' .$control;
     $c = new $name;
     $c->$action();
