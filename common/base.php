@@ -1,11 +1,16 @@
 <?php
-/**
- ++++++++++++++++++++++++++++++++++++
- * 入口配置文件
- ++++++++++++++++++++++++++++++++++++
- */
-define('_ACCESS_GRANT', TRUE);
+// +----------------------------------------------------------------------
+// | @name base.php
+// +----------------------------------------------------------------------
+// | @desc 配置文件
+// +----------------------------------------------------------------------
+// | @author bibyzhang90@gmail.com
+// +----------------------------------------------------------------------
 
+//入口定义
+define('PRODUCE_ACCESS_GRANT', TRUE);
+
+//调试模式
 if( APP_DEBUG ){
     ini_set("display_errors", 1);
     error_reporting(E_ALL^E_NOTICE);
@@ -14,6 +19,7 @@ if( APP_DEBUG ){
     error_reporting(0);
 }
 
+//时区设置
 date_default_timezone_set('Asia/Chongqidng');
 
 //缓存文件夹地址
@@ -34,8 +40,6 @@ define('STATIC_PATH',BASE_PATH . 'statics' . DIRECTORY_SEPARATOR);
 require(CACHE_PATH . 'configs/system.php');
 define('APP_PATH',$systemArr['app_path']);
 
-//图片存放地址
-//define('IMAGE_PATH',$systemArr['image_path']);
 //图片地址
 define('IMG_PATH',$systemArr['img_path']);
 
@@ -84,8 +88,6 @@ require_once(CLASS_PATH . 'tpl.class.php');
 //引入图片处理库
 require(CLASS_PATH . 'ThinkImage.class.php');
 require(CLASS_PATH . 'Gd.class.php');
-//require(CLASS_PATH . 'GIF.class.php');
-//require(CLASS_PATH . 'Imagick.class.php');
 require(CLASS_PATH . 'Image.class.php');
 
 //beanstalk
