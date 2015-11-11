@@ -6,9 +6,13 @@
  */
 define('_ACCESS_GRANT', TRUE);
 
-ini_set("display_errors", 0);
-//error_reporting(E_ALL^E_NOTICE);
-error_reporting(0);
+if( APP_DEBUG ){
+    ini_set("display_errors", 1);
+    error_reporting(E_ALL^E_NOTICE);
+}else{
+    ini_set("display_errors", 0);
+    error_reporting(0);
+}
 
 date_default_timezone_set('Asia/Chongqidng');
 
