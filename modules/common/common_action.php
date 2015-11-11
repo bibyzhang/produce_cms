@@ -8,8 +8,6 @@ namespace modules\common;
 
 defined('_ACCESS_GRANT') or exit('没有访问权限!');
 
-require_once(MODULE_PATH."admin/classes/admin.class.php");
-
 class common_action extends  \modules\admin\classes\admin{
     public $ftp;
 
