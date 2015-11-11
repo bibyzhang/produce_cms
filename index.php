@@ -40,17 +40,19 @@ $action = empty($getData['a'])? 'index' : strtolower($getData['a']); //方法
 
 $app_id = strchr($module,'admin') ? 1 : 2;//区分操作所属应用
 
+if(empty($module))
+    die('Forbidden!');
+
 if(!empty($module)){
     $controlFile = MODULE_PATH . $module . DIRECTORY_SEPARATOR . $control . '.php';
-    if( !file_exists($controlFile) ){
+    if( !file_exists($controlFile) && APP_DEBUG )
         throw new Exception($module . DIRECTORY_SEPARATOR . $control . '.php'.'类文件不存在');
-    }
+    elseif( !file_exists($controlFile) )
+        die('Error!');
+    //echo $module . DIRECTORY_SEPARATOR . $control . '.php'.'类文件不存在'; exit();
 
     $name = '\modules\\' . $module . '\\' .$control;
     $c = new $name;
     $c->$action();
     $c->setLog('select',$app_id);//记录操作日志
-}else{
-    //默认首页
-    $smarty->display('index.html');
 }
