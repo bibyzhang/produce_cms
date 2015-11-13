@@ -37,7 +37,7 @@ require_once(BASE_PATH . '/common/base.php');
 //图片下载存放地址
 define('IMAGE_PATH', BASE_PATH . '../');//图片下载存放地址
 
-//应用宝攻略搜索
+//执行
 if( $type=='strategy_search' ){
     $client = new \test\test();
     $client->test_deal();
